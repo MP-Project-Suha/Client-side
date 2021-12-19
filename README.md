@@ -49,7 +49,7 @@
 
 # UML Diagram:
 
-## ![UML](https://github.com/MP-Project-Suha/Client-side/blob/master/images/UML.png)
+## ![UML](https://github.com/MP-Project-Suha/Client-side/tree/main/images)
 
   ----
   # Routers :
