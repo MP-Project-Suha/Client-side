@@ -47,6 +47,37 @@
 * In admin dashboard there is bar chart showing analisis of response rate in each event in application. Values computed referring to data achieved from event's geust.
 * Admin can delete any event in any time, and block and unblock user account.
 
+# UML Diagram:
 
+## ![UML](https://github.com/MP-Project-Suha/Client-side/blob/master/images/UML.png)
 
   ----
+  # Routers :
+
+| COMPONENT     | URL          | Permissions | Behavior |
+| ------------- | ------------ | ----------- | -------- |
+| Login       |  /login | public | Login user to his account |
+| Register    | /register | public |  Rigister new account page   |
+| ForgetPassword | /forgetPassword/:_id/:token  | public | Form to enter new password |
+| ResetPassword | /resetPassword | public | Form for enter user email to send reset password link to him |
+| MyEvents |  /myEvents | private - user |   Show all user events |
+| MySingleEvent | /mySingleEvent | private - user | Event Discription page |
+| Landing  | / |  public | Home page for the website |
+| Events |  /events | public | Show all events|
+| Event  | /event | public | Show public event |
+| EditEvent | /editEvent | private - user |  update Event |
+| DeleteEvent | /deleteEvent | private - user | delete event for user |
+| AddEvent  | /addEvent | private -user | add event |
+| Vote| /vote | private | vote for the event |
+| GeustList | /geustList | private - user  | Show all user guests |
+| MyTickitss | /myTickets | private - user | Show all user tickets |
+| MyTickits | /myTicket | private - user | Show user ticket |
+| AddTicket  | /addTicket| private -user | add ticket |
+| Profile | /profile | private -user | show user profile and update it |
+
+---
+## Links:
+* [Trello](https://trello.com/b/xefVOZOx/master-piece-project)
+* [Deploy]
+* [Server-Side](https://github.com/MP-Project-Suha/Server-side)
+* [Slides]
