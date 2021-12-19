@@ -79,6 +79,11 @@
 ## Wire Frame:
 **Public Pages**
 ![PublicPages](https://s3.amazonaws.com/assets.mockflow.com/app/wireframepro/company/C078ceb35b095466e83c21d663f9cd3e3/projects/MSn8XvILgnb/pages/74e1249c4cb34521838fb4178856afbd/image/74e1249c4cb34521838fb4178856afbd.png?1639937121663)
+
+**Event Pages**
+![Event Pages](https://s3.amazonaws.com/assets.mockflow.com/app/wireframepro/company/C078ceb35b095466e83c21d663f9cd3e3/projects/MSn8XvILgnb/pages/D55f21dce610c3fcdcea3de382c7cfbf4/image/D55f21dce610c3fcdcea3de382c7cfbf4.png?1639938024004)
+
+
 ## Links:
 * [Trello](https://trello.com/b/xefVOZOx/master-piece-project)
 * [Deploy]
