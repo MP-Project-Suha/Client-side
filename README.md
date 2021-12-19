@@ -76,6 +76,9 @@
 | Profile | /profile | private -user | show user profile and update it |
 
 ---
+## Wire Frame:
+**Public Pages**
+![PublicPages](https://s3.amazonaws.com/assets.mockflow.com/app/wireframepro/company/C078ceb35b095466e83c21d663f9cd3e3/projects/MSn8XvILgnb/pages/74e1249c4cb34521838fb4178856afbd/image/74e1249c4cb34521838fb4178856afbd.png?1639935979733)
 ## Links:
 * [Trello](https://trello.com/b/xefVOZOx/master-piece-project)
 * [Deploy]
