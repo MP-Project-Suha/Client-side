@@ -7,6 +7,10 @@ import Header from "./components/Header";
 import Landing from "./components/Landing"
 import Login from "./components/Login";
 import Register from "./components/Register";
+import Verify from "./components/Verify ";
+import ForgetPassword from "./components/ForgetPassword";
+import ResetPassword from "./components/RestPassword";
+
 const App = () => {
   const state = useSelector((state) => {
     return {
@@ -20,9 +24,13 @@ const App = () => {
       <Header />
       <Login/>
       <Register/>
+     
       <Routes>
       <Route exact path="/" element={<Landing />} />
-        </Routes>
+      <Route exact path="/verify/:token2" element={<Verify />} />
+      <Route exact path="/forgetPassword" element={<ForgetPassword/>} />
+      <Route exact path="/resetPassword/:id/:tokenMail" element={<ResetPassword/>} />
+      </Routes>
     </div>
   );
 };
