@@ -39,7 +39,7 @@ const initialState = {
   
   export default reducerLog;
   
-  export const login1 = (data) => {
+  export const logIn= (data) => {
     return {
       type: "LOGIN",
       payload: data,

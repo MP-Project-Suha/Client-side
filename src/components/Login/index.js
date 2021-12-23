@@ -1,13 +1,12 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
-import { login1 } from "../../Reducers/login";
+import { logIn } from "../../Reducers/login";
 import { useNavigate } from "react-router";
 import GoogleLogin from "react-google-login";
 import "./style.css";
 
 const Login = () => {
-  const popupTools = require("popup-tools");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const dispatch = useDispatch();
@@ -28,18 +27,18 @@ const Login = () => {
           password,
         }
       );
-      console.log(result.data);
-      if (result.status == 200) {
+      console.log(result);
+      if (result.status == 201) {
         setMessage("Success");
         dispatch(
-          login1({ user: result.data.result, token: result.data.token })
+            logIn({ user: result.data.result, token: result.data.token })
         );
-        navigator("/explore");
+        navigator("/");
       }
     } catch (error) {
       console.log(error.response);
 
-      if (error.response.status == 403) {
+      if (error.response.status === 403) {
         setMessage("Please, Verified your email");
       } else {
         setMessage("Please, Enter invalid email or password");
@@ -67,7 +66,7 @@ const Login = () => {
 
         console.log("token", result.data.token);
         dispatch(
-          login1({ user: result.data.result, token: result.data.token })
+          logIn({ user: result.data.result, token: result.data.token })
         );
         navigator("/explore");
       })
@@ -80,32 +79,32 @@ const Login = () => {
   };
 
   return (
-    <div className="form">
+    <div>
 
       <input
-        className="input"
+
         placeholder="Email..."
         type="text"
         onChange={(e) => setEmail(e.target.value)}
       />
 
       <input
-        className="input"
+
         placeholder="Password..."
         type="password"
         onChange={(e) => setPassword(e.target.value)}
       />
       <br />
-      <p className="red">{message ? message : ""}</p>
-      <button className="submit" onClick={login}>
+      <p >{message ? message : ""}</p>
+      <button onClick={login}>
         Submit
       </button>
 
       <br />
 
       <GoogleLogin
-        clientId="426069343336-4qrce5u8on7li4kht6rtprfj9sfcikkk.apps.googleusercontent.com"
-        buttonText="Login With Gamil"
+        clientId="61276267155-5b31fjejqkcbo2h59bj9ci8lnitjjhmk.apps.googleusercontent.com"
+        buttonText="Login With Gmail"
         onSuccess={responseSuccessGoogle}
         onFailure={responseErrorGoogle}
         cookiePolicy={"single_host_origin"}
@@ -117,7 +116,6 @@ const Login = () => {
           e.preventDefault();
           forgotPasswordNav();
         }}
-        className="darkLink"
       >
         Forget your password?
       </p>
