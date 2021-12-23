@@ -6,6 +6,7 @@ import "./App.css";
 import Header from "./components/Header";
 import Landing from "./components/Landing"
 import Login from "./components/Login";
+import Register from "./components/Register";
 const App = () => {
   const state = useSelector((state) => {
     return {
@@ -18,6 +19,7 @@ const App = () => {
     <div>
       <Header />
       <Login/>
+      <Register/>
       <Routes>
       <Route exact path="/" element={<Landing />} />
         </Routes>

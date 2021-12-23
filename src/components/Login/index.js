@@ -28,7 +28,7 @@ const Login = () => {
         }
       );
       console.log(result);
-      if (result.status == 201) {
+      if (result.status === 201) {
         setMessage("Success");
         dispatch(
             logIn({ user: result.data.result, token: result.data.token })
