@@ -5,8 +5,15 @@ import { Link } from "react-router-dom";
 const Header = () => {
     return (
         <div>
-            <h1>header</h1>
-            <Link to="/">Home</Link>
+  <ul>
+
+          <li> <Link to="/">Home</Link></li> 
+          <li>  <Link to="/login">Login</Link></li> 
+          <li>  <Link to="/register">Register</Link></li> 
+          <li>  <Link to="/createEvent">Create Event</Link></li> 
+          <li>  <Link to="/Event">Event</Link></li> 
+          
+            </ul>
         </div>
     )
 }
