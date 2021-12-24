@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate, useParams, Link } from "react-router-dom";
-import { storage } from "../firebase";
-import DatePicker from "react-datepicker";
+import { useDispatch, useSelector } from "react-redux";
 
+import DatePicker from "react-datepicker";
+import Location from "../Location";
+import UploadImage from "../UploadImage"
 //
 import DateAndTime from "../DateAndTime";
 // style
@@ -13,7 +15,8 @@ import "react-datepicker/dist/react-datepicker.css";
 const CreateEvent = ({ getRecipes }) => {
   const [user, setUser] = useState(null);
   const [message, setMessage] = useState("");
-
+  const [url, setUrl] = useState("");
+  
   // create event values
   const [title, setTitle] = useState("");
   const [shortDisc, setShortDisc] = useState("");
@@ -37,7 +40,16 @@ const CreateEvent = ({ getRecipes }) => {
     setUser(JSON.parse(userStorage));
   }, []);
 
+  const state = useSelector((state) => {
+    return {
+      reducerLog: state.reducerLog,
+    };
+  });
+
   const createEvent = async () => {
+    try {
+      
+
     const res = await axios.post(`${process.env.REACT_APP_BASE_URL}/myEvent`, {
       title,
       shortDisc,
@@ -48,54 +60,34 @@ const CreateEvent = ({ getRecipes }) => {
       beginAt,
       endAt,
       isPublic,
-    });
-
+    }
+    ,
+        {
+          headers: {
+            Authorization: `Bearer ${state.reducerLog.token}`,
+          },
+        }
+    );
+ console.log(res.data);
     if (res.data.status === 201) {
-      getRecipes();
       setMessage("success");
       navigate("/myEvent");
     } else {
       setMessage("sorry, something wrong happened");
     }
+  } catch (error) {
+      console.log(error.response);
+  }
   };
 
-  // const handleChange = (e) => {
-  //   if (e.target.files[0]) {
-  //     setImage(e.target.files[0]);
-  //   }
-  // };
-
-  // const handleUpload = () => {
-  //   const uploadTask = storage.ref(`images/${image.name}`).put(image);
-  //   uploadTask.on(
-  //     "state_changed",
-  //     (snapshot) => {
-  //       const progress = Math.round(
-  //         (snapshot.bytesTransferred / snapshot.totalBytes) * 100
-  //       );
-  //       setProgress(progress);
-  //     },
-  //     (error) => {
-  //       console.log(error);
-  //     },
-  //     () => {
-  //       storage
-  //         .ref("images")
-  //         .child(image.name)
-  //         .getDownloadURL()
-  //         .then((url) => {
-  //           setUrl(url);
-  //         });
-  //     }
-  //   );
-  // };
 
   return (
     <div>
       <div>
         <form
           method="POST"
-          onSubmit={() => {
+          onSubmit={(e) => {
+            e.preventDefault();
             createEvent();
           }}
         >
@@ -145,10 +137,10 @@ const CreateEvent = ({ getRecipes }) => {
           <br />
 
           <input
-            type="text"
+            type="number"
             name="price"
             rows="1"
-            placeholder="Ticket Price"
+            placeholder="Ticket Price in Riyal"
             required
             onChange={(e) => setPrice(e.target.value)}
           />
@@ -166,19 +158,9 @@ const CreateEvent = ({ getRecipes }) => {
             setEndTime={setEndTime}
           />
 
-          {/* <div>
-              <input type="file" onChange={handleChange} />
-              {image?
-                        <div >
-                        <button  onClick={handleUpload}>
-                          Upload
-                        </button>
-                        <progress value={progress} max="100" />
-                      </div>
-                      :""
-              }
-  
-            </div> */}
+          {/* <Location/> */}
+
+<UploadImage setUrl={setUrl}/>
 
           {message ? <p> {message}</p> : ""}
 
