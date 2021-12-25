@@ -14,9 +14,13 @@ import CreateEvent from "./components/CreateEvent";
 import Event from "./components/Event";
 import MyEvents from "./components/MyEvents";
 import PublicEvents from "./components/PublicEvents";
+import PostTicket from "./components/PostTicket"
+import MyTickets from "./components/MyTickets";
 const App = () => {
   const [events, setEvents] = useState([]);
   const [myEvents, setMyEvents] = useState([]);
+  const [myTickets, setMyTickets] = useState([]);
+  
   const state = useSelector((state) => {
     return {
       reducerLog: state.reducerLog,
@@ -59,11 +63,43 @@ const App = () => {
       console.log(error.response);
     }
   };
+
+  useEffect(() => {
+    getMyTickets();
+  }, []);
+
+  const getMyTickets = async () => {
+    try {
+      const result = await axios.get(
+        `${process.env.REACT_APP_BASE_URL}/myTickets`,
+        {
+          headers: {
+            Authorization: `Bearer ${state.reducerLog.token}`,
+          },
+        }
+      );
+      // console.log("getMyTickets,",result.data);
+      setMyTickets(result.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <div>
       <Header />
-
+      
       <Routes>
+      <Route
+          exact
+          path="/MyTickets" 
+          element={<MyTickets getMyTickets={getMyTickets} myTickets={myTickets} />}
+        />
+      <Route
+          exact
+          path="/postTicket"
+          element={<PostTicket />}
+        />
         <Route
           exact
           path="/MyEvents"

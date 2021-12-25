@@ -13,7 +13,7 @@ const Header = () => {
           <li>  <Link to="/createEvent">Create Event</Link></li> 
           <li>  <Link to="/PublicEvents">PublicEvents</Link></li> 
           <li> <Link to="/MyEvents">MyEvents</Link></li> 
-
+          <li> <Link to="/MyTickets">MyTickets</Link></li> 
 
             </ul>
         </div>

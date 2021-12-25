@@ -8,6 +8,7 @@ const MyEvent = ({ event }) => {
   return (
     <>
       <Link to={`/Event/${event._id}`}>
+      
         <p>{event.title}</p>
       </Link>
     </>

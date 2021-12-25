@@ -1,14 +1,16 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import axios from "axios";
+import { useNavigate } from "react-router";
 //for Date format
 import Moment from "react-moment";
 import "./style.css";
-
+import PostTicket from "../PostTicket"
 const Event = () => {
   const { eventId } = useParams();
-  const [event, setEvent] = useState(null);
 
+  const [event, setEvent] = useState(null);
+ const navigator =useNavigate()|
   useEffect(() => {
     getEvent();
   }, []);
@@ -66,6 +68,8 @@ const Event = () => {
           {event && event.endTime}
         </Moment>
       </p>
+<PostTicket eventId={eventId}/>
+  
     </div>
   );
 };
