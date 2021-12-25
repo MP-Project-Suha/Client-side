@@ -23,12 +23,10 @@ const Verify = () => {
     }
   };
   return (
-    <div >
-      <div >
-      <h1 >Thank you for Verify your account . Please</h1>
-      <Link to="/">
-       Log in 
-      </Link>
+    <div>
+      <div>
+        <h1>Thank you for Verify your account . Please</h1>
+        <Link to="/">Log in</Link>
       </div>
     </div>
   );

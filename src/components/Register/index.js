@@ -8,12 +8,9 @@ const Register = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [role, setRole] = useState("61c0da7f10b76faf5ac7fdca"); //user role
-  // admin role:"61c0da9610b76faf5ac7fdcc" 
+  // admin role:"61c0da9610b76faf5ac7fdcc"
   const [message, setMessage] = useState("");
 
-
-
- 
   const register = async () => {
     setMessage("");
     try {
@@ -37,33 +34,27 @@ const Register = () => {
     }
   };
 
-
   return (
     <div>
       <form
-
         onSubmit={(e) => {
           e.preventDefault();
           register();
         }}
       >
-
         <input
-
           required
           type="text"
           placeholder="First Name .."
           onChange={(e) => setFirstName(e.target.value)}
         />
-     <input
-
+        <input
           required
           type="text"
           placeholder="Last Name .."
           onChange={(e) => setLastName(e.target.value)}
         />
         <input
-
           required
           type="email"
           placeholder="Email .."
@@ -71,14 +62,12 @@ const Register = () => {
         />
 
         <input
-
           placeholder="Password..."
           type="password"
           onChange={(e) => setPassword(e.target.value)}
         />
         <PasswordChecklist
           rules={[`minLength`, `specialChar`, `number`, `capital`, `lowercase`]}
-
           minLength={8}
           value={password}
           onChange={(isValid) => {
@@ -92,14 +81,8 @@ const Register = () => {
           }}
         />
 
-
-
-   
-
-        <p > {message ? message : ""}</p>
-        <button id="signupSubmitButton">
-          Register
-        </button>
+        <p> {message ? message : ""}</p>
+        <button id="signupSubmitButton">Register</button>
       </form>
     </div>
   );

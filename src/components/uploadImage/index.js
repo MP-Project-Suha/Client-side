@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "react"
+import React, { useState, useEffect } from "react";
 import { storage } from "../firebase";
 
-const UploadImage = ({setUrl}) => {
-    const [image, setImage] = useState("");
-    const [progress, setProgress] = useState(0)
+const UploadImage = ({ setUrl }) => {
+  const [image, setImage] = useState("");
+  const [progress, setProgress] = useState(0);
   const handleChange = (e) => {
     if (e.target.files[0]) {
       setImage(e.target.files[0]);
@@ -33,22 +33,20 @@ const UploadImage = ({setUrl}) => {
           });
       }
     );
-  };  
-    return (
-         <div>
-              <input type="file" onChange={handleChange} />
-              {image?
-                        <div >
-                        <button  onClick={handleUpload}>
-                          Upload
-                        </button>
-                        <progress value={progress} max="100" />
-                      </div>
-                      :""
-              }
+  };
+  return (
+    <div>
+      <input type="file" onChange={handleChange} />
+      {image ? (
+        <div>
+          <button onClick={handleUpload}>Upload</button>
+          <progress value={progress} max="100" />
+        </div>
+      ) : (
+        ""
+      )}
+    </div>
+  );
+};
 
-            </div> 
-    )
-}
-
-export default UploadImage
+export default UploadImage;

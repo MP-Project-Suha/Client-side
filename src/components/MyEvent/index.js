@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 // style
 import "./style.css";
 
-const PublicEvent = ({ event }) => {
+const MyEvent = ({ event }) => {
   return (
     <>
       <Link to={`/Event/${event._id}`}>
@@ -14,4 +14,4 @@ const PublicEvent = ({ event }) => {
   );
 };
 
-export default PublicEvent;
+export default MyEvent;

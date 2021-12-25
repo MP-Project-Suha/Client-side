@@ -30,9 +30,7 @@ const Login = () => {
       console.log(result);
       if (result.status === 201) {
         setMessage("Success");
-        dispatch(
-            logIn({ user: result.data.result, token: result.data.token })
-        );
+        dispatch(logIn({ user: result.data.result, token: result.data.token }));
         navigator("/");
       }
     } catch (error) {
@@ -46,12 +44,9 @@ const Login = () => {
     }
   };
 
-
-
   const forgotPasswordNav = async () => {
     navigator("/forgetPassword");
   };
-
 
   const responseSuccessGoogle = (response) => {
     console.log("google", response);
@@ -65,9 +60,7 @@ const Login = () => {
         console.log("user", result.data.result);
 
         console.log("token", result.data.token);
-        dispatch(
-          logIn({ user: result.data.result, token: result.data.token })
-        );
+        dispatch(logIn({ user: result.data.result, token: result.data.token }));
         navigator("/explore");
       })
       .catch((error) => {
@@ -80,25 +73,20 @@ const Login = () => {
 
   return (
     <div>
-
       <input
-
         placeholder="Email..."
         type="text"
         onChange={(e) => setEmail(e.target.value)}
       />
 
       <input
-
         placeholder="Password..."
         type="password"
         onChange={(e) => setPassword(e.target.value)}
       />
       <br />
-      <p >{message ? message : ""}</p>
-      <button onClick={login}>
-        Submit
-      </button>
+      <p>{message ? message : ""}</p>
+      <button onClick={login}>Submit</button>
 
       <br />
 

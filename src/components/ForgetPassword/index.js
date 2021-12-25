@@ -41,30 +41,25 @@ const ForgetPassword = () => {
     }
   };
   return (
-    <div >
-      <div >
+    <div>
+      <div>
         <h1>Enter your current email ! </h1>
         <input
-  
           placeholder="Enter email..."
           type="text"
           onChange={(e) => setEmail(e.target.value)}
         />
-        <div >
-          <p >{message ? message : ""}</p>
+        <div>
+          <p>{message ? message : ""}</p>
           <br />
           {message.includes("Your email is not registered yet.") ? (
-            <Link  to="/">
-              Sign Up
-            </Link>
+            <Link to="/">Sign Up</Link>
           ) : (
             ""
           )}
         </div>
         <br />
-        <button onClick={forgotPasswordFunc}>
-          Send To my Email
-        </button>
+        <button onClick={forgotPasswordFunc}>Send To my Email</button>
       </div>
     </div>
   );

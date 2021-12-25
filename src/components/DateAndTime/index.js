@@ -5,9 +5,16 @@ import DatePicker from "react-datepicker";
 import "./style.css";
 import "react-datepicker/dist/react-datepicker.css";
 
-const DateAndTime = ({setBeginAt ,setEndAt,beginAt,endAt,startTime, setStartTime,endTime, setEndTime}) => {
-
-
+const DateAndTime = ({
+  setBeginAt,
+  setEndAt,
+  beginAt,
+  endAt,
+  startTime,
+  setStartTime,
+  endTime,
+  setEndTime,
+}) => {
   // set range value
   const onChange = (dates) => {
     const [start, end] = dates;
@@ -43,7 +50,7 @@ const DateAndTime = ({setBeginAt ,setEndAt,beginAt,endAt,startTime, setStartTime
         dateFormat="h:mm aa"
         id="startTime"
       />
-      
+
       <label to="endTime">End Time</label>
       <DatePicker
         selected={endTime}
