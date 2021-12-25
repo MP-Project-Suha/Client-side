@@ -48,7 +48,7 @@ const CreateEvent = ({ getRecipes }) => {
 
   const createEvent = async () => {
     try {
-      
+
 
     const res = await axios.post(`${process.env.REACT_APP_BASE_URL}/myEvent`, {
       title,
@@ -59,6 +59,8 @@ const CreateEvent = ({ getRecipes }) => {
       price,
       beginAt,
       endAt,
+      startTime,
+      endTime,
       isPublic,
     }
     ,
@@ -68,10 +70,10 @@ const CreateEvent = ({ getRecipes }) => {
           },
         }
     );
- console.log(res.data);
-    if (res.data.status === 201) {
+ console.log(res);
+    if (res.status === 201) {
       setMessage("success");
-      navigate("/myEvent");
+      // navigate("/myEvents");
     } else {
       setMessage("sorry, something wrong happened");
     }
@@ -145,6 +147,11 @@ const CreateEvent = ({ getRecipes }) => {
             onChange={(e) => setPrice(e.target.value)}
           />
 
+<br />
+
+<input onChange={(e) => setIsPublic(false) } type="radio" value="false" name="isPublic" /> Private
+        <input onChange={(e) => setIsPublic(true) } type="radio" value="true" name="isPublic" /> Public
+
           <br />
 
           <DateAndTime
@@ -166,7 +173,7 @@ const CreateEvent = ({ getRecipes }) => {
 
           <div>
             <p>
-              <Link to="/Recipes"> Cancel </Link>
+              <Link to="/"> Cancel </Link>
             </p>
             <input type="submit" value="Save" />{" "}
           </div>
