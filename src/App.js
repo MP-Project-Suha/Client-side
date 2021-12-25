@@ -12,7 +12,7 @@ import ForgetPassword from "./components/ForgetPassword";
 import ResetPassword from "./components/RestPassword";
 import CreateEvent from "./components/CreateEvent"
 import Event from "./components/Event"
-import Events from "./components/Events"
+import PublicEvents from "./components/PublicEvents"
 const App = () => {
   const [events, setEvents] = useState([]);
   const state = useSelector((state) => {
@@ -20,7 +20,7 @@ const App = () => {
       reducerLog: state.reducerLog,
     };
   });
-  console.log(state.reducerLog);
+
   useEffect(() => {
     allPublicEvents();
   }, []);
@@ -46,8 +46,8 @@ console.log(result);
       <Header />
 
       <Routes>
-      <Route exact path="/Events" element={<Events allPublicEvents ={allPublicEvents } events={events} /> }/>
-      <Route exact path="/Event" element={<Event />} />
+      <Route exact path="/PublicEvents" element={<PublicEvents allPublicEvents ={allPublicEvents } events={events} /> }/>
+      <Route exact path="/Event/:eventId" element={<Event />} />
       <Route exact path="/" element={<Landing />} />
       <Route exact path="/login" element={<Login/>} />
       <Route exact path="/register" element={<Register/>} />

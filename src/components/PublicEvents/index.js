@@ -1,8 +1,8 @@
 
 import React, { useEffect } from "react";
-
+import PublicEvent from "../PublicEvent";
 import "./style.css";
-const Events = ({ events, allPublicEvents }) => {
+const PublicEvents = ({ events, allPublicEvents }) => {
   useEffect(() => {
     allPublicEvents();
   }, []);
@@ -11,7 +11,7 @@ const Events = ({ events, allPublicEvents }) => {
       <div >
         {events && events.length ? (
           events.map((elem) => (
-           <p>{elem.title}</p>
+            <PublicEvent event={elem} allPublicEvents={allPublicEvents}/>
           ))
         ) : (
           <img
@@ -23,4 +23,4 @@ const Events = ({ events, allPublicEvents }) => {
   );
 };
 
-export default Events;
+export default PublicEvents;
