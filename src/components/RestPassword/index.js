@@ -18,11 +18,10 @@ const ResetPassword = () => {
       reducerLog: state.reducerLog,
     };
   });
-console.log(state.reducerLog);
+  console.log(state.reducerLog);
   const resetPassword = async () => {
-      
     try {
-        console.log(id,tokenMail);
+      console.log(id, tokenMail);
       const result = await axios.post(
         `${process.env.REACT_APP_BASE_URL}/resetPassword/${id}/${tokenMail}`,
         { password },
@@ -35,9 +34,7 @@ console.log(state.reducerLog);
       console.log(result);
       if (result.status === 201) {
         setMessage("password change successfully");
-        dispatch(
-            logIn({ user: result.data.result, token: result.data.token })
-        );
+        dispatch(logIn({ user: result.data.result, token: result.data.token }));
         navigator("/explore");
       }
     } catch (error) {

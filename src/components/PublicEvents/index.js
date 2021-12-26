@@ -1,16 +1,16 @@
 import React, { useEffect } from "react";
-import MyEvent from "../MyEvent";
+import PublicEvent from "../PublicEvent";
 import "./style.css";
-const MyEvents = ({ myEvents, getMyEvents }) => {
+const PublicEvents = ({ events, allPublicEvents }) => {
   useEffect(() => {
-    getMyEvents();
+    allPublicEvents();
   }, []);
   return (
     <div>
       <div>
-        {myEvents && myEvents.length ? (
-          myEvents.map((elem) => (
-            <MyEvent event={elem} getMyEvents={getMyEvents} />
+        {events && events.length ? (
+          events.map((elem) => (
+            <PublicEvent event={elem} allPublicEvents={allPublicEvents} />
           ))
         ) : (
           <img src="https://i.pinimg.com/originals/1e/5c/0b/1e5c0bc454c49fb59a58a19f378d64e6.gif" />
@@ -20,4 +20,4 @@ const MyEvents = ({ myEvents, getMyEvents }) => {
   );
 };
 
-export default MyEvents;
+export default PublicEvents;
