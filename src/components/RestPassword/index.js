@@ -32,7 +32,7 @@ const ResetPassword = () => {
         }
       );
       console.log(result);
-      if (result.status === 201) {
+      if (result.status === 200) {
         setMessage("password change successfully");
         dispatch(logIn({ user: result.data.result, token: result.data.token }));
         navigator("/explore");

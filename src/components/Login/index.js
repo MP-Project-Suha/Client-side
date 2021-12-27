@@ -4,9 +4,14 @@ import { useDispatch, useSelector } from "react-redux";
 import { logIn } from "../../Reducers/login";
 import { useNavigate } from "react-router";
 import GoogleLogin from "react-google-login";
+import { Link, useLocation } from "react-router-dom";
 import "./style.css";
 
 const Login = () => {
+  const location = useLocation();
+  const { pathname } = location;
+  const splitLocation = pathname.split("/");
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const dispatch = useDispatch();
@@ -72,7 +77,17 @@ const Login = () => {
   };
 
   return (
-    <div>
+    <div className="myEvent">
+      {/* banner */}
+      <div className="myEvent">
+        <div className="cont">
+          <p>
+            <Link to="/"> Home </Link> - {splitLocation[1]}
+          </p>
+          <span>{splitLocation[1]}</span>
+        </div>
+      </div>
+      {/* main */}
       <input
         placeholder="Email..."
         type="text"
@@ -86,7 +101,9 @@ const Login = () => {
       />
       <br />
       <p>{message ? message : ""}</p>
-      <button onClick={login}>Submit</button>
+      <button className="btn" onClick={login}>
+        Submit
+      </button>
 
       <br />
 

@@ -1,21 +1,38 @@
 import React, { useEffect } from "react";
 import MyEvent from "../MyEvent";
+import { Link, useLocation } from "react-router-dom";
 import "./style.css";
 const MyEvents = ({ myEvents, getMyEvents }) => {
+  const location = useLocation();
+  const { pathname } = location;
+  const splitLocation = pathname.split("/");
   useEffect(() => {
     getMyEvents();
   }, []);
   return (
-    <div>
-      <div>
-        {myEvents && myEvents.length ? (
-          myEvents.map((elem) => (
-            <MyEvent event={elem} getMyEvents={getMyEvents} />
-          ))
-        ) : (
-          <img src="https://i.pinimg.com/originals/1e/5c/0b/1e5c0bc454c49fb59a58a19f378d64e6.gif" />
-        )}
+    <div className="contain">
+      {/* banner */}
+      <div className="myEvent">
+        <div className="cont">
+          <p>
+            <Link to="/"> Home </Link> - {splitLocation[1]}
+          </p>
+          <span>{splitLocation[1]}</span>
+        </div>
       </div>
+      {/* main */}
+      <main>
+        {myEvents && myEvents.length
+          ? myEvents.map((elem) => (
+              <MyEvent
+                className="subEvent"
+                key={`event${elem._id}`}
+                event={elem}
+                getMyEvents={getMyEvents}
+              />
+            ))
+          : "no events"}
+      </main>
     </div>
   );
 };

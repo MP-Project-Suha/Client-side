@@ -1,8 +1,15 @@
 import React, { useState } from "react";
 import axios from "axios";
 import PasswordChecklist from "react-password-checklist";
+import { Link, useLocation } from "react-router-dom";
 import "./style.css";
 const Register = () => {
+
+  const location = useLocation();
+  const { pathname } = location;
+  const splitLocation = pathname.split("/");
+
+
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
@@ -35,7 +42,17 @@ const Register = () => {
   };
 
   return (
-    <div>
+    <div className="myEvent">
+            {/* banner */}
+            <div className="myEvent">
+        <div className="cont">
+          <p>
+            <Link to="/">  Home </Link> - {splitLocation[1]}
+          </p>
+          <span>{splitLocation[1]}</span>
+        </div>
+      </div>
+{/* main */}
       <form
         onSubmit={(e) => {
           e.preventDefault();
@@ -82,7 +99,7 @@ const Register = () => {
         />
 
         <p> {message ? message : ""}</p>
-        <button id="signupSubmitButton">Register</button>
+        <button className="btn" id="signupSubmitButton">Register</button>
       </form>
     </div>
   );
