@@ -1,22 +1,39 @@
 import React, { useEffect, useState } from "react";
 import MyTicket from "../MyTicket"
+import { Link, useLocation } from "react-router-dom";
 import "./style.css";
 const MyTickets = ({myTickets,getMyTickets}) => {
+  const location = useLocation();
+  const { pathname } = location;
+  const splitLocation = pathname.split("/");
+ 
   // useEffect(() => {
   //   getMyTickets();
   // }, []);
     return (
+      <div className="contain">
+            {/* banner */}
+            <div className="myEvent">
+            <div className="cont">
+              <p>
+                <Link to="/">  Home </Link> - {splitLocation[1]}
+              </p>
+              <span>{splitLocation[1]}</span>
+            </div>
+          </div>
+    {/* main */}
                   <div>
+
         {myTickets.length ? (
           myTickets.map((elem) => (
        
             <MyTicket key={`ticket${elem._id}`} ticket={elem} getMyTickets={getMyTickets} />
           ))
         ) : (
-          <img src="https://i.pinimg.com/originals/1e/5c/0b/1e5c0bc454c49fb59a58a19f378d64e6.gif" />
+         "no tickets"
         )}
       </div>
-
+      </div>
     )
 }
 

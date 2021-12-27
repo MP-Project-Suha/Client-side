@@ -16,6 +16,7 @@ import MyEvents from "./components/MyEvents";
 import PublicEvents from "./components/PublicEvents";
 import PostTicket from "./components/PostTicket"
 import MyTickets from "./components/MyTickets";
+import GuestList from "./components/GuestList";
 const App = () => {
   const [events, setEvents] = useState([]);
   const [myEvents, setMyEvents] = useState([]);
@@ -29,6 +30,7 @@ const App = () => {
 
   useEffect(() => {
     allPublicEvents();
+    getMyEvents();
   }, []);
 
   const allPublicEvents = async () => {
@@ -36,18 +38,17 @@ const App = () => {
       const result = await axios.get(
         `${process.env.REACT_APP_BASE_URL}/events`
       );
-      console.log(result);
+      // console.log(result.data);
       setEvents(result.data);
     } catch (error) {
       console.log(error);
     }
   };
 
-  useEffect(() => {
-    getMyEvents();
-  }, []);
+
 
   const getMyEvents = async () => {
+
     try {
       const result = await axios.get(
         `${process.env.REACT_APP_BASE_URL}/myEvents`,
@@ -57,7 +58,8 @@ const App = () => {
           },
         }
       );
-      console.log(result);
+      // console.log("m");
+      // console.log(result.data);
       setMyEvents(result.data);
     } catch (error) {
       console.log(error.response);
@@ -92,7 +94,7 @@ const App = () => {
       <Routes>
       <Route
           exact
-          path="/MyTickets" 
+          path="/Tickets" 
           element={<MyTickets getMyTickets={getMyTickets} myTickets={myTickets} />}
         />
       <Route
@@ -102,16 +104,17 @@ const App = () => {
         />
         <Route
           exact
-          path="/MyEvents"
+          path="/Events"
           element={<MyEvents getMyEvents={getMyEvents} myEvents={myEvents} />}
         />
         <Route
           exact
-          path="/PublicEvents"
+          path="/Public"
           element={
             <PublicEvents allPublicEvents={allPublicEvents} events={events} />
           }
         />
+         <Route exact path="/GuestList/:_id" element={<GuestList />} />
         <Route exact path="/Event/:eventId" element={<Event />} />
         <Route exact path="/" element={<Landing />} />
         <Route exact path="/login" element={<Login />} />

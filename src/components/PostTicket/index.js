@@ -35,6 +35,7 @@ const PostTicket = ({ eventId }) => {
   return (
     <div>
       <button
+      className="btn"
         onClick={(e) => {
           e.preventDefault();
           addTicket();

@@ -20,6 +20,7 @@ const DateAndTime = ({
     const [start, end] = dates;
     setBeginAt(start);
     setEndAt(end);
+    console.log(end);
   };
 
   return (

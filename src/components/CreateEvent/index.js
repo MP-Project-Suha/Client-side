@@ -73,7 +73,7 @@ const CreateEvent = ({ getRecipes }) => {
  console.log(res);
     if (res.status === 201) {
       setMessage("success");
-      // navigate("/myEvents");
+      navigate("/myEvents");
     } else {
       setMessage("sorry, something wrong happened");
     }
