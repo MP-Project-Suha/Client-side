@@ -6,6 +6,7 @@ import { useNavigate } from "react-router";
 import Moment from "react-moment";
 import "./style.css";
 import PostTicket from "../PostTicket";
+import { useDispatch, useSelector } from "react-redux";
 const Event = () => {
   const { eventId } = useParams();
 
@@ -15,31 +16,34 @@ const Event = () => {
   useEffect(() => {
     getEvent();
   }, []);
-
+  const state = useSelector((state) => {
+    return {
+      reducerLog: state.reducerLog,
+    };
+  });
+  console.log(state.reducerLog.user);
   const getEvent = async () => {
     try {
       const result = await axios.get(
         `${process.env.REACT_APP_BASE_URL}/event/${eventId}`
       );
-console.log(result.data);
+      console.log(result.data);
       if (result.data) {
         setEvent(result.data);
       }
     } catch (error) {
-      console.log(error.response);
+      console.log(error);
     }
   };
-
+  console.log(state);
   return (
     <div className="myEvent">
       {/* banner */}
       <div className="myEvent">
-        <div className="cont">
-
-        </div>
+        <div className="cont"></div>
       </div>
       {/* main */}
-      <main className="event">
+      <main className="event card">
         <p> title: {event && event.title} </p>
         <p> longDisc: {event && event.longDisc} </p>
         <p> shortDisc: {event && event.shortDisc} </p>
@@ -77,23 +81,45 @@ console.log(result.data);
             {event && event.endTime}
           </Moment>
         </p>
-        {event && event.isVerified ? (
-          <>
-            {" "}
-            <h1
-              className="btn"
-              onClick={(e) => {
-                navigator(`/GuestList/${event._id}`);
-              }}
-            >
-              Enter your guest List{" "}
-            </h1>
-          </>
+        {state.reducerLog.user ? (
+          event &&
+          event &&
+          event.createdBy._id == state.reducerLog.user._id &&
+          !event.isPublic ? (
+            event.isVerified ? (
+              <>
+                {" "}
+                <h1
+                  className="btn"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    navigator(`/GuestList/${event._id}`);
+                  }}
+                >
+                  Enter your guest List{" "}
+                </h1>
+              </>
+            ) : (
+              <lable className="status">pending</lable>
+            )
+          ) : (
+            ""
+          )
         ) : (
-          <lable className="status">pending</lable>
+          ""
         )}
+        {state.reducerLog.user? (
+          event && event.createdBy._id == state.reducerLog.user._id ? (
+          <h1> works</h1>
+          ) : (
+            <PostTicket eventId={eventId} />
+          )
+        ) : 
         <PostTicket eventId={eventId} />
+        }
+     
       </main>
+     
     </div>
   );
 };

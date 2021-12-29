@@ -17,6 +17,10 @@ import PublicEvents from "./components/PublicEvents";
 import PostTicket from "./components/PostTicket"
 import MyTickets from "./components/MyTickets";
 import GuestList from "./components/GuestList";
+import QR from "./components/QR"
+import Ticket from "./components/Ticket";
+import Footer from "./components/Footer";
+import Payment from "./components/Payment"
 const App = () => {
   const [events, setEvents] = useState([]);
   const [myEvents, setMyEvents] = useState([]);
@@ -94,8 +98,23 @@ const App = () => {
       <Routes>
       <Route
           exact
+          path="/payment/:event" 
+          element={<Payment/>}
+        />
+      <Route
+          exact
+          path="/qr" 
+          element={<QR/>}
+        />
+      <Route
+          exact
           path="/Tickets" 
           element={<MyTickets getMyTickets={getMyTickets} myTickets={myTickets} />}
+        />
+                <Route
+          exact
+          path="/ticket/:_id"
+          element={<Ticket/>}
         />
       <Route
           exact
@@ -128,6 +147,7 @@ const App = () => {
         />
         <Route exact path="/createEvent" element={<CreateEvent />} />
       </Routes>
+      <Footer/>
     </div>
   );
 };

@@ -13,7 +13,7 @@ const Header = () => {
     return (
         <div className="header">
             <div className="left">
-                <h1 className="logo">Suha</h1>
+               <img id="logo" src="https://firebasestorage.googleapis.com/v0/b/recipes-notebook-5d870.appspot.com/o/images%2FUntitled%20design(u2).png?alt=media&token=276c8b0c-f776-4640-a23d-0db75751cd28"/>
           
   <ul className="nav">
   

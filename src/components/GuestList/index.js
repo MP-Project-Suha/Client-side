@@ -162,14 +162,15 @@ const GuestList = () => {
         }
       );
       console.log(result.data);
-      myEventTickets()
+      myEventTickets();
     } catch (error) {
       console.log(error.response);
     }
   };
 
   return (
-    <div>
+  
+    <div className="all">
       {/* banner */}
       <div className="guestList">
         <div className="cont">
@@ -182,7 +183,7 @@ const GuestList = () => {
       {/* main */}
       <div className="app-container">
         <form onSubmit={handleEditFormSubmit}>
-          <table>
+          <table className="table">
             <thead>
               <tr>
                 <th>First Name</th>
@@ -213,33 +214,49 @@ const GuestList = () => {
           </table>
         </form>
 
-        <h2>Add a Contact</h2>
-        <form className="form" onSubmit={handleAddFormSubmit}>
-          <input
+        <p>Add a Contact</p>
+        <form  onSubmit={handleAddFormSubmit}>
+        <table className="table">
+        {/* <thead>
+              <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Email</th>
+                <th>Actions</th>
+              </tr>
+            </thead> */}
+        <tbody>
+        <tr>
+        <td> <input
             type="text"
             name="firstName"
             required="required"
             placeholder="Enter first name..."
             onChange={handleAddFormChange}
-          />
-          <input
+          /></td> 
+          <td>  <input
             type="text"
             name="lastName"
             required="required"
             placeholder="Enter last name..."
             onChange={handleAddFormChange}
-          />
-          <input
+          /></td> 
+         <td>   <input
             type="email"
             name="email"
             required="required"
             placeholder="Enter email..."
             onChange={handleAddFormChange}
-          />
-          <button type="submit">Add</button>
+          /></td> 
+         
+         <td>  <button type="submit">Add</button> </td> 
+          </tr>
+          </tbody>
+          </table >
         </form>
-
-        <button className="btn" onClick={sentGuests}>
+        <br />
+        <button id="save" className="btn" onClick={sentGuests}>
+          
           save and send tickets
         </button>
       </div>{" "}

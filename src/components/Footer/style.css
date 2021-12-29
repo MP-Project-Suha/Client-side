@@ -1,0 +1,32 @@
+.footer {
+  min-height: 300px;
+  position: relative;
+  background-color: #14081f;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content:flex-start;
+}
+
+.footerLogo {
+    display: none;
+  width: 50px;
+
+}
+#navFooter{
+    padding-top: 15px;
+    /* margin-left: 20%; */
+/* border-left: 1px solid #c8156e; */
+}
+#navFooter li a {
+  margin-bottom: 0;
+  display: flex;
+  flex-direction: column;
+  color: #cdcdcd;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+#navFooter li a:hover{
+
+    color:  #c8156e;
+}

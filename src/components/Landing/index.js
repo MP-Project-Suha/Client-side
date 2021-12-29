@@ -4,7 +4,7 @@ import "./style.css";
 
 const Landing = () => {
   return (
-    <div className="myEvent">
+    <div className="contain">
       {/* banner */}
       <div className="myEvent">
         <div className="cont">
@@ -15,8 +15,11 @@ const Landing = () => {
         </div>
       </div>
       {/* main */}
+      <main>
+      < div id="yi">    </div>
       <h1>landing</h1>
-    </div>
+      </main>
+      </div>
   );
 };
 

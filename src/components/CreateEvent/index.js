@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 import DatePicker from "react-datepicker";
 import Location from "../Location";
-import UploadImage from "../UploadImage"
+import UploadImage from "../UploadImage";
 //
 import DateAndTime from "../DateAndTime";
 // style
@@ -16,7 +16,7 @@ const CreateEvent = ({ getRecipes }) => {
   const [user, setUser] = useState(null);
   const [message, setMessage] = useState("");
   const [url, setUrl] = useState("");
-  
+  console.log(url);
   // create event values
   const [title, setTitle] = useState("");
   const [shortDisc, setShortDisc] = useState("");
@@ -48,44 +48,52 @@ const CreateEvent = ({ getRecipes }) => {
 
   const createEvent = async () => {
     try {
-
-
-    const res = await axios.post(`${process.env.REACT_APP_BASE_URL}/myEvent`, {
-      title,
-      shortDisc,
-      longDisc,
-      images,
-      location,
-      price,
-      beginAt,
-      endAt,
-      startTime,
-      endTime,
-      isPublic,
-    }
-    ,
+      const res = await axios.post(
+        `${process.env.REACT_APP_BASE_URL}/myEvent`,
+        {
+          title,
+          shortDisc,
+          longDisc,
+          images,
+          location,
+          price,
+          beginAt,
+          endAt,
+          startTime,
+          endTime,
+          isPublic,
+        },
         {
           headers: {
             Authorization: `Bearer ${state.reducerLog.token}`,
           },
         }
-    );
- console.log(res);
-    if (res.status === 201) {
-      setMessage("success");
-      navigate("/myEvents");
-    } else {
-      setMessage("sorry, something wrong happened");
-    }
-  } catch (error) {
+      );
+      console.log(res);
+      if (res.status === 201) {
+        setMessage("success");
+        navigate("/myEvents");
+      } else {
+        setMessage("sorry, something wrong happened");
+      }
+    } catch (error) {
       console.log(error.response);
-  }
+    }
   };
 
-
   return (
-    <div>
-      <div>
+    <div className="all">
+      {/* banner */}
+      <div className="myEvent">
+        <div className="cont">
+          <p>
+            <Link to="/"> Home </Link> -
+          </p>
+          <span>Made yours</span>
+        </div>
+      </div>
+      {/* main */}
+      <div className="app-container">
         <form
           method="POST"
           onSubmit={(e) => {
@@ -95,8 +103,8 @@ const CreateEvent = ({ getRecipes }) => {
         >
           <h1> Create Event </h1>
           <div></div>
-
           <input
+            className="input"
             type="text"
             name="title"
             rows="1"
@@ -104,7 +112,6 @@ const CreateEvent = ({ getRecipes }) => {
             required
             onChange={(e) => setTitle(e.target.value)}
           />
-
           <textarea
             type="text"
             name="Short Description.."
@@ -113,9 +120,7 @@ const CreateEvent = ({ getRecipes }) => {
             required
             onChange={(e) => setShortDisc(e.target.value)}
           />
-
           <br />
-
           <textarea
             type="text"
             name="longDisc"
@@ -124,10 +129,9 @@ const CreateEvent = ({ getRecipes }) => {
             required
             onChange={(e) => setLongDisc(e.target.value)}
           />
-
           <br />
-
           <input
+            className="input"
             type="text"
             name="location"
             rows="1"
@@ -135,10 +139,9 @@ const CreateEvent = ({ getRecipes }) => {
             required
             onChange={(e) => setLocation(e.target.value)}
           />
-
           <br />
-
           <input
+            className="input"
             type="number"
             name="price"
             rows="1"
@@ -146,14 +149,22 @@ const CreateEvent = ({ getRecipes }) => {
             required
             onChange={(e) => setPrice(e.target.value)}
           />
-
-<br />
-
-<input onChange={(e) => setIsPublic(false) } type="radio" value="false" name="isPublic" /> Private
-        <input onChange={(e) => setIsPublic(true) } type="radio" value="true" name="isPublic" /> Public
-
           <br />
-
+          <input
+            onChange={(e) => setIsPublic(false)}
+            type="radio"
+            value="false"
+            name="isPublic"
+          />{" "}
+          Private
+          <input
+            onChange={(e) => setIsPublic(true)}
+            type="radio"
+            value="true"
+            name="isPublic"
+          />{" "}
+          Public
+          <br />
           <DateAndTime
             setBeginAt={setBeginAt}
             setEndAt={setEndAt}
@@ -164,18 +175,14 @@ const CreateEvent = ({ getRecipes }) => {
             endTime={endTime}
             setEndTime={setEndTime}
           />
-
           {/* <Location/> */}
-
-<UploadImage setUrl={setUrl}/>
-
+          <UploadImage setUrl={setUrl} />
           {message ? <p> {message}</p> : ""}
-
           <div>
             <p>
-              <Link to="/"> Cancel </Link>
+              <Link className="btn" to="/"> Cancel </Link>
             </p>
-            <input type="submit" value="Save" />{" "}
+            <input className="btn" type="submit" value=" Save " />{" "}
           </div>
         </form>
       </div>
