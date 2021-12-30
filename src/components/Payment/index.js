@@ -9,10 +9,8 @@ export const stripePromise = loadStripe(
   "pk_test_51KBw4EH8miGnakuDvMuAzgbci8p5SpRcFmGSJlx1SfJDK8o0DSKvYl45ME9CJcHDzLsCtsoRm9njZR1d54Ubtf9300pmrsfxQ2"
 );
 
-const Payment = () => {
-  const {event} = useParams();
-  const donate = useParams().donate;
-  const packageId = useParams().packageId;
+const Payment = ({ donate, price }) => {
+  const { event } = useParams();
 
   const [clientSecret, setClientSecret] = useState("");
 
@@ -37,22 +35,12 @@ const Payment = () => {
   };
 
   return (
-    <div className="all">
-      <div className="myEvent">
-
-      </div>
-      <div className="cont">
-        <h1>payment</h1>
+    <div>
       {clientSecret && (
         <Elements options={options} stripe={stripePromise}>
-          <CheckoutForm
-            event={event}
-            donate={donate}
-            packageId={packageId}
-          />
+          <CheckoutForm event={event} donate={donate} price={price} />
         </Elements>
       )}
-      </div>
     </div>
   );
 };

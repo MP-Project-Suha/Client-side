@@ -21,13 +21,13 @@ const Event = () => {
       reducerLog: state.reducerLog,
     };
   });
-  console.log(state.reducerLog.user);
+  // console.log(state.reducerLog.user);
   const getEvent = async () => {
     try {
       const result = await axios.get(
         `${process.env.REACT_APP_BASE_URL}/event/${eventId}`
       );
-      console.log(result.data);
+      // console.log("result",result.data);
       if (result.data) {
         setEvent(result.data);
       }
@@ -35,7 +35,7 @@ const Event = () => {
       console.log(error);
     }
   };
-  console.log(state);
+  // console.log(event);
   return (
     <div className="myEvent">
       {/* banner */}
@@ -43,7 +43,9 @@ const Event = () => {
         <div className="cont"></div>
       </div>
       {/* main */}
+      {event&& !event ? <main className="event card">  <img id="loading" src="https://i.pinimg.com/originals/1e/5c/0b/1e5c0bc454c49fb59a58a19f378d64e6.gif" /> </main>:
       <main className="event card">
+
         <p> title: {event && event.title} </p>
         <p> longDisc: {event && event.longDisc} </p>
         <p> shortDisc: {event && event.shortDisc} </p>
@@ -83,9 +85,9 @@ const Event = () => {
         </p>
         {state.reducerLog.user ? (
           event &&
-          event &&
+          (event &&
           event.createdBy._id == state.reducerLog.user._id &&
-          !event.isPublic ? (
+          !event.isPublic) ? (
             event.isVerified ? (
               <>
                 {" "}
@@ -109,17 +111,33 @@ const Event = () => {
           ""
         )}
         {state.reducerLog.user? (
-          event && event.createdBy._id == state.reducerLog.user._id ? (
-          <h1> works</h1>
+          event && event.createdBy._id === state.reducerLog.user._id ? (
+          <lable className="status"> {event.isVerified? "Verified":"Pending"}</lable>
           ) : (
-            <PostTicket eventId={eventId} />
+            <button
+            className="btn"
+              onClick={(e) => {
+                e.preventDefault();
+                navigator(`/PostTicketSuccess/${event._id}`)
+              }}
+            >
+              Get Ticket
+            </button>
           )
         ) : 
-        <PostTicket eventId={eventId} />
+        <button
+        className="btn"
+          onClick={(e) => {
+            e.preventDefault();
+            navigator(`/postTicket/${event._id}`)
+          }}
+        >
+          Get Ticket
+        </button>
         }
      
       </main>
-     
+    }
     </div>
   );
 };

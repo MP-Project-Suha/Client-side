@@ -110,3 +110,14 @@ main{
  flex-direction: column;
  align-items: center;
 }
+
+
+.status{
+  background-color:  #fff;
+  color:#0000FF;
+  font-size: 0.7rem;
+  border: solid 2px #0000FF;
+  border-radius: 25px;
+  padding:5px;
+  text-align: center;
+}

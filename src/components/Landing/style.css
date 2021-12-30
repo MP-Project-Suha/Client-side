@@ -1,3 +1,49 @@
-#yi{
-
+/* .banner {
+    background-image: url("https://nbccongrescentrum.nl/content/uploads/2019/11/De-event-trends-voor-2020-NBC-Congrescentrum.jpg");
+} */
+.contain{
+    width: 100%;
+    min-height: 100vh;
+}
+.banner{
+    box-sizing: border-box;
+    background-image: url("https://www.leadingauthorities.com/sites/default/files/2019-10/keynote-speaker-on-stage.details.jpg");
+background-repeat: no-repeat;
+min-height: 100vh;
+position:relative;
+top: 0;
+display: flex;
+flex-direction: column;
+align-items:flex-start;
+justify-content: flex-end;
+background-size: 100% 100vh;
+position: relative;
+}
+.contHome{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items:flex-end;
+    justify-content: flex-end;
+    margin-bottom: -2.8vh;
+    margin-right: 2vw;
+    position: absolute;
+    right: 0;
+    bottom: 200px;
+}
+.contHome span{
+    color: #ffffff;
+    font-family: 'Rubik Mono One', sans-serif;
+    font-size: 7vw !important;
+    line-height: 1 !important;
+  
+}
+.contHome p, a{
+    vertical-align: baseline;
+    margin-bottom: 20px;
+    color: #fd226a;
+    font-size: 20px;
+    line-height: 24px;
+    font-weight: 300;
+    font-family: Open Sans;
 }

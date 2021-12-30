@@ -87,14 +87,18 @@ const Login = () => {
           <span>{splitLocation[1]}</span>
         </div>
       </div>
-      {/* main */}
+
+    {/* main */}
+    <main className="event card">
       <input
+         className="input"
         placeholder="Email..."
         type="text"
         onChange={(e) => setEmail(e.target.value)}
       />
 
       <input
+      className="input"
         placeholder="Password..."
         type="password"
         onChange={(e) => setPassword(e.target.value)}
@@ -124,6 +128,7 @@ const Login = () => {
       >
         Forget your password?
       </p>
+      </main>
     </div>
   );
 };
