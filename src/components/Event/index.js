@@ -109,6 +109,7 @@ const Event = () => {
           )
         ) : (
           ""
+          
         )}
         {state.reducerLog.user? (
           event && event.createdBy._id === state.reducerLog.user._id ? (
@@ -118,7 +119,7 @@ const Event = () => {
             className="btn"
               onClick={(e) => {
                 e.preventDefault();
-                navigator(`/PostTicketSuccess/${event._id}`)
+                event.price?navigator(`/PostTicket/${event._id}`):navigator(`/PostTicketSuccess/${event._id}`)
               }}
             >
               Get Ticket
@@ -129,7 +130,7 @@ const Event = () => {
         className="btn"
           onClick={(e) => {
             e.preventDefault();
-            navigator(`/postTicket/${event._id}`)
+            event.price?navigator(`/PostTicket/${event._id}`):navigator(`/PostTicketSuccess/${event._id}`)
           }}
         >
           Get Ticket

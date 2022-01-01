@@ -38,12 +38,49 @@ position: relative;
     line-height: 1 !important;
   
 }
-.contHome p, a{
+.white{
+    color: #f3f3f3;
+    font-family: 'Rubik Mono One', sans-serif;
+    font-size: 10vw !important;
+    line-height: 1 !important;
+  
+}
+.contHome p, a, .nu{
     vertical-align: baseline;
     margin-bottom: 20px;
     color: #fd226a;
     font-size: 20px;
     line-height: 24px;
     font-weight: 300;
-    font-family: Open Sans;
+    /* font-family: Open Sans; */
 }
+
+.nu{
+    vertical-align: baseline;
+    margin-bottom: 20px;
+    color: #fd226a;
+    font-size: 20px;
+    line-height: 24px;
+    font-weight: 300;
+    /* font-family: Open Sans; */
+    position:absolute;
+    right:200px;
+    bottom:70px;
+    text-align: center;
+}
+
+.subTitle{
+    position:absolute;
+    font-size: 35px;
+    line-height: 1.3;
+    color: #232323;
+    text-align: center;
+    right:50px;
+    bottom:0;
+}
+.relative{
+    margin-top: 17px;
+    position:relative;
+    min-height: 200px;
+}
+

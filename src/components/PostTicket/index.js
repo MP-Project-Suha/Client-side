@@ -8,44 +8,45 @@ import Payment from "../Payment";
 import "./style.css";
 
 const PostTicket = () => {
-
   const navigator = useNavigate();
-const {event}= useParams()
-const [price,setPrice] = useState("")
-const [donate,setDonate] = useState("")
+  const { event } = useParams();
+  const [price, setPrice] = useState("");
+  const [donate, setDonate] = useState("");
   const state = useSelector((state) => {
     return {
       reducerLog: state.reducerLog,
     };
   });
 
-// if user dose not have an account navigate to login page
+  // if user dose not have an account navigate to login page
   useEffect(() => {
-    if(!state.reducerLog.token) {
-      navigator("/login")
-        } 
-     }, [])
-     useEffect(() => {
-      getEvent();
-    }, []);
+    if (!state.reducerLog.token) {
+      navigator("/login");
+    }
+  }, []);
+  useEffect(() => {
+    getEvent();
+  }, []);
 
-    const getEvent = async () => {
-      try {
-        const result = await axios.get(
-          `${process.env.REACT_APP_BASE_URL}/event/${event}`
-        );
-       
-        if (result.data) {
-          setPrice(result.data.price);
-        }
-      } catch (error) {
-        console.log(error);
+  const getEvent = async () => {
+    try {
+      const result = await axios.get(
+        `${process.env.REACT_APP_BASE_URL}/event/${event}`
+      );
+
+      if (result.data) {
+        console.log(result.data);
+       setPrice(result.data.price);
       }
-    };
-console.log(donate);
+
+      
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  console.log(donate);
   // const addTicket = async () => {
   //   try {
-
 
   //       const result = await axios.post(
   //           `${process.env.REACT_APP_BASE_URL}/myTicket/${event}`,{},
@@ -66,25 +67,28 @@ console.log(donate);
 
   return (
     <div className="myEvent">
-    {/* banner */}
-    <div className="myEvent">
-      <div className="cont"></div>
-    </div>
-    {/* main */}
-    <main className="event card">
-      
-    <h2>Checkout Page</h2>
-    <p> You ticket price is {(price && price)? price:"free"}</p>
-    <div className="donate">
-    <p>If you want to donate</p>
+      {/* banner */}
+      <div className="myEvent">
+        <div className="cont"></div>
+      </div>
+      {/* main */}
+      <main className="event card">
+        <h2>Checkout Page</h2>
+        <p> You ticket price is {price && price ? price : "free"}</p>
+        <div className="donate">
+          <p>If you want to donate</p>
 
-    <input className="input donate"  placeholder="RS" type="number" onClick={(e)=>setDonate(e.target.value)} />
+          <input
+            className="input donate"
+            placeholder="RS"
+            type="number"
+            onClick={(e) => setDonate(e.target.value)}
+          />
+        </div>
+        <h1>payment</h1>
+        <Payment donate={donate} price={price} />
+      </main>
     </div>
-    <h1>payment</h1>
-   <Payment donate={donate} price={price} />
-
-     </main>
-     </div>
   );
 };
 

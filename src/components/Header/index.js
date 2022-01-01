@@ -23,7 +23,7 @@ const Header = () => {
  
           <li className={splitLocation[1] === "Public" ? "active" : ""}>  <Link to="/Public">Public Events</Link></li> 
           <li className={splitLocation[1] === "Events" ? "active" : ""}> <Link to="/Events">My Events</Link></li> 
-          <li className={splitLocation[1] === "Tickets" ? "active" : ""}> <Link to="/Tickets">My Tickets</Link></li> 
+          <li className={splitLocation[1] === "tickets" ? "active" : ""}> <Link to="/Tickets">My Tickets</Link></li> 
           <li className={splitLocation[1] === "cart" ? "active" : ""}> <Link to="/cart">Cart</Link></li> 
             </ul>
             </div>

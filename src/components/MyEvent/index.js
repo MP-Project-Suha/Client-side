@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import "./style.css";
 
 const MyEvent = ({ event }) => {
+
   console.log(event);
   return (
     <div className="event">
@@ -12,8 +13,8 @@ const MyEvent = ({ event }) => {
         <p>{event.title}</p>
         </Link>
         <label className={event.isVerified? "":"status"}>{event.isVerified? "":"pending"}</label>
-      
- 
+
+        
     </div>
   );
 };

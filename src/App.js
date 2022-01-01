@@ -23,6 +23,7 @@ import Footer from "./components/Footer";
 import Payment from "./components/Payment";
 import Cart from "./components/Cart";
 import PostTicketSuccess from "./components/PostTicketSuccess";
+import TicketReader from "./components/TicketReader";
 const App = () => {
   const [events, setEvents] = useState([]);
   const [myEvents, setMyEvents] = useState([]);
@@ -129,12 +130,18 @@ const App = () => {
     }
   };
 
-  console.log("order", order);
+  // console.log("order", order);
   return (
     <div>
       <Header />
 
       <Routes>
+      
+      <Route
+          exact
+          path="/TicketReader/:ticket"
+          element={<TicketReader/>}
+        />
         <Route
           exact
           path="/PostTicketSuccess/:event"
@@ -149,7 +156,7 @@ const App = () => {
         <Route exact path="/qr" element={<QR />} />
         <Route
           exact
-          path="/Tickets"
+          path="/tickets"
           element={
             <MyTickets getMyTickets={getMyTickets} myTickets={myTickets} />
           }
