@@ -33,7 +33,12 @@ const DateAndTime = ({
         endDate={endAt}
         minDate={new Date()}
         selectsRange
-        inline
+        isClearable={true}
+        withPortal
+        disabledKeyboardNavigation
+        placeholderText="Select Dates"
+        // inline
+        // showDisabledMonthNavigation
         id="dates"
       />
 
@@ -41,8 +46,7 @@ const DateAndTime = ({
       <DatePicker
         selected={startTime}
         onChange={(date) => {
-          setStartTime(date);
-          console.log(date);
+          setStartTime(date)
         }}
         showTimeSelect
         showTimeSelectOnly
@@ -51,7 +55,6 @@ const DateAndTime = ({
         dateFormat="h:mm aa"
         id="startTime"
       />
-
       <label to="endTime">End Time</label>
       <DatePicker
         selected={endTime}

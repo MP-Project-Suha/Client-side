@@ -33,7 +33,7 @@ const GuestList = () => {
   useEffect(() => {
     myEventTickets();
   }, []);
-  console.log("contacts", contacts);
+  
   const state = useSelector((state) => {
     return {
       reducerLog: state.reducerLog,
@@ -134,7 +134,7 @@ const GuestList = () => {
         }
       );
 
-      console.log("myEventTickets:-----", result.data);
+     
       const res = result.data.map((elem) => {
         return {
           id: elem.createdBy._id,
@@ -161,7 +161,7 @@ const GuestList = () => {
           },
         }
       );
-      console.log(result.data);
+     
       myEventTickets();
     } catch (error) {
       console.log(error.response);

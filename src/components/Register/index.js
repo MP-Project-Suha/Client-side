@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import axios from "axios";
 import PasswordChecklist from "react-password-checklist";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation ,useNavigate} from "react-router-dom";
 import "./style.css";
 const Register = () => {
 
   const location = useLocation();
+  const navigator =useNavigate();
   const { pathname } = location;
   const splitLocation = pathname.split("/");
 
@@ -53,25 +54,32 @@ const Register = () => {
         </div>
       </div>
 {/* main */}
+
       <form
+      className="box flex"
         onSubmit={(e) => {
           e.preventDefault();
           register();
         }}
       >
+        <p className="boxTitle">Register Right Now!</p>
+        <hr className="line"/>
         <input
+        className="input"
           required
           type="text"
           placeholder="First Name .."
           onChange={(e) => setFirstName(e.target.value)}
         />
         <input
+           className="input"
           required
           type="text"
           placeholder="Last Name .."
           onChange={(e) => setLastName(e.target.value)}
         />
         <input
+           className="input"
           required
           type="email"
           placeholder="Email"
@@ -79,6 +87,7 @@ const Register = () => {
         />
 
         <input
+           className="input"
           placeholder="Password"
           type="password"
           onChange={(e) => setPassword(e.target.value)}
@@ -100,6 +109,10 @@ const Register = () => {
 
         <p> {message ? message : ""}</p>
         <button className="btn" id="signupSubmitButton">Register</button>
+        <p className="link" onClick={(e) =>{e.preventDefault()
+          navigator("/login")} }>
+          Have account? Sign In!
+          </p>
       </form>
     </div>
   );

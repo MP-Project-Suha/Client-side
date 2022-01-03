@@ -2,6 +2,7 @@
 
 *{
   font-family: "Rubik", sans-serif;
+  box-sizing: border-box;
   /* font-family: "Rubik Mono One", sans-serif; */
 }
 body {
@@ -10,8 +11,11 @@ body {
   width: 100%;
   box-sizing: border-box;
   font-family: "Rubik Mono One", sans-serif;
-  background-color:#ffffff
+  background-color:#ffffff;
+  color: #616161;
+
 }
+
 .logo {
   color: #c8156e;
   font-family: "Rubik Mono One", sans-serif;
@@ -82,7 +86,43 @@ a {
   background-color: #ffffff;
   color:  #c8156e;
   border-color:  #c8156e;
+  box-shadow: 0 15px 38px 10px rgb(0 0 0 / 10%);
 }
+
+.secondaryBtn{
+  border-radius: 50px;
+  border-width: 1px;
+  display: inline-block;
+  vertical-align: top;
+  margin-bottom: 20px;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.07em;
+  line-height: 20px;
+  border-style: solid;
+  white-space: nowrap;
+  text-align: center;
+  text-transform: uppercase;
+  transition: all 0.4s;
+  cursor: pointer;
+  border-color:#7c529c;
+  min-width: 130px;
+  padding: 9px 30px;
+  color: #ffffff;
+  background-color: #7c529c;
+
+}
+.secondaryBtn:hover{
+  background-color: #ffffff;
+  color:  #7c529c;
+  border-color:  #7c529c;
+  box-shadow: 0 15px 38px 10px rgb(0 0 0 / 10%);
+  
+}
+ .moof{
+  color: #7c529c;
+}
+
 main {
   margin-top: 5%;
   width: 100%;
@@ -103,13 +143,13 @@ h2{
   font-size: 40px;
   line-height: 52px;
 }
-main{
+/* .main{
   margin: 0 auto;
- width: 80%;
+
  display: flex;
- flex-direction: column;
+
  align-items: center;
-}
+} */
 
 
 .status{
@@ -121,3 +161,29 @@ main{
   padding:5px;
   text-align: center;
 }
+
+.link{
+  cursor: pointer;
+  color: #000;
+  font-size: 13px;
+  text-align: center;
+}
+.link:hover{
+  color: #c8156e;
+}
+
+.input , textarea{
+	padding: 15px;
+	border: 1px solid #ccc;
+	border-radius: 3px;
+	margin-bottom: 10px;
+	width: 100%;
+	box-sizing: border-box;
+	font-family: montserrat;
+	color: #2C3E50;
+	font-size: 13px;
+    border-radius: 25px;
+	text-align: center;
+
+}
+
