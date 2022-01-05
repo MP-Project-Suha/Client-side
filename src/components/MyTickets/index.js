@@ -22,7 +22,7 @@ const MyTickets = ({myTickets,getMyTickets}) => {
             </div>
           </div>
     {/* main */}
-                  <div>
+                  <main>
 
         {myTickets.length ? (
           myTickets.map((elem) => (
@@ -30,9 +30,9 @@ const MyTickets = ({myTickets,getMyTickets}) => {
             <MyTicket key={`ticket${elem._id}`} ticket={elem} getMyTickets={getMyTickets} />
           ))
         ) : (
-         "no tickets"
+          <h3>No Ticket for you.. </h3>
         )}
-      </div>
+      </main>
       </div>
     )
 }

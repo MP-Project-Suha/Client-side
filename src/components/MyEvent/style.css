@@ -1,12 +1,4 @@
-.status{
-    background-color: #fd226a;
-    color:white;
-    font-size: 0.7rem;
-    border-radius: 10px;
-    padding: 2px;
-    width: 6%;
-    text-align: center;
-}
+
 
 .event {
  display: flex;
@@ -16,3 +8,15 @@
  width: 90%;
  min-height: 20vh;
 }
+.cursor {
+    cursor: pointer;
+    color: #7c529c;
+}
+.cursor:hover{
+    color: #c8156e;
+  }
+  .card.flexCard{
+      display: flex;
+     justify-content: space-evenly;
+     align-items: baseline;
+  }

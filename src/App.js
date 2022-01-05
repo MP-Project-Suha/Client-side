@@ -14,14 +14,26 @@ import CreateEvent from "./components/CreateEvent";
 import Event from "./components/Event";
 import MyEvents from "./components/MyEvents";
 import PublicEvents from "./components/PublicEvents";
-import PostTicket from "./components/PostTicket"
+import PostTicket from "./components/PostTicket";
 import MyTickets from "./components/MyTickets";
 import GuestList from "./components/GuestList";
+import QR from "./components/QR";
+import Ticket from "./components/Ticket";
+import Footer from "./components/Footer";
+import Payment from "./components/Payment";
+import Cart from "./components/Cart";
+import PostTicketSuccess from "./components/PostTicketSuccess";
+import TicketReader from "./components/TicketReader";
+import EditEvent from "./components/EditEvent"
+import QRReader from "./components/QRReader"
 const App = () => {
   const [events, setEvents] = useState([]);
   const [myEvents, setMyEvents] = useState([]);
   const [myTickets, setMyTickets] = useState([]);
-  
+  const [myPendingTickets, setMyPendingTickets] = useState([]);
+  const [count, setCount] = useState(null);
+  const [order, setOrder] = useState([]);
+
   const state = useSelector((state) => {
     return {
       reducerLog: state.reducerLog,
@@ -45,10 +57,7 @@ const App = () => {
     }
   };
 
-
-
   const getMyEvents = async () => {
-
     try {
       const result = await axios.get(
         `${process.env.REACT_APP_BASE_URL}/myEvents`,
@@ -87,21 +96,82 @@ const App = () => {
     }
   };
 
+  useEffect(() => {
+    getMyPendingTickets();
+  }, []);
+
+  const getMyPendingTickets = async () => {
+    try {
+      const result = await axios.get(
+        `${process.env.REACT_APP_BASE_URL}/myPendingTickets`,
+        {
+          headers: {
+            Authorization: `Bearer ${state.reducerLog.token}`,
+          },
+        }
+      );
+      if (result.data) {
+        if (result.data.length) {
+          const counts = {};
+
+          result.data.forEach((ticket) => {
+            counts[ticket.event._id] = (counts[ticket.event._id] || 0) + 1;
+          });
+          setCount(counts);
+          //  console.log("counts", counts);
+          for (const elem in counts) {
+            const obj = { ticket: elem, quantity: counts[elem] };
+            order.push(obj);
+            setOrder(order);
+          }
+        }
+        setMyPendingTickets(result.data);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  // console.log("order", order);
   return (
     <div>
       <Header />
       
       <Routes>
+      <Route exact 
+      path="/QrReader"
+      element={<QRReader/>}
+      />
+      <Route exact 
+      path="/editEvent/:event"
+      element={<EditEvent/>}
+      />
       <Route
           exact
-          path="/Tickets" 
-          element={<MyTickets getMyTickets={getMyTickets} myTickets={myTickets} />}
+          path="/TicketReader/:ticket"
+          element={<TicketReader/>}
         />
-      <Route
+        <Route
           exact
-          path="/postTicket"
-          element={<PostTicket />}
+          path="/PostTicketSuccess/:event"
+          element={<PostTicketSuccess  getMyPendingTickets={ getMyPendingTickets}/>}
         />
+        <Route
+          exact
+          path="/cart"
+          element={<Cart getMyPendingTickets={getMyPendingTickets}  myPendingTickets={myPendingTickets}  order={ order} />}
+        />
+        <Route exact path="/payment/:event" element={<Payment />} />
+        <Route exact path="/qr" element={<QR />} />
+        <Route
+          exact
+          path="/tickets"
+          element={
+            <MyTickets getMyTickets={getMyTickets} myTickets={myTickets} />
+          }
+        />
+        <Route exact path="/ticket/:_id" element={<Ticket />} />
+        <Route exact path="/postTicket/:event" element={<PostTicket />} />
         <Route
           exact
           path="/Events"
@@ -114,9 +184,9 @@ const App = () => {
             <PublicEvents allPublicEvents={allPublicEvents} events={events} />
           }
         />
-         <Route exact path="/GuestList/:_id" element={<GuestList />} />
+        <Route exact path="/GuestList/:_id" element={<GuestList />} />
         <Route exact path="/Event/:eventId" element={<Event />} />
-        <Route exact path="/" element={<Landing />} />
+        <Route exact path="/" element={<Landing allPublicEvents={allPublicEvents} events={events} />} />
         <Route exact path="/login" element={<Login />} />
         <Route exact path="/register" element={<Register />} />
         <Route exact path="/verify/:token2" element={<Verify />} />
@@ -128,6 +198,7 @@ const App = () => {
         />
         <Route exact path="/createEvent" element={<CreateEvent />} />
       </Routes>
+      <Footer />
     </div>
   );
 };

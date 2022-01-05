@@ -1,9 +1,14 @@
 import React, { useState } from "react";
+//package
 import axios from "axios";
+
 import { useSelector } from "react-redux";
-import "./style.css";
 import { Link } from "react-router-dom";
-const ForgetPassword = () => {
+
+//style
+import "./style.css";
+
+const ForgetPassword = ({ setToggle }) => {
   const [email, setEmail] = useState("initialState");
   const [message, setMessage] = useState("");
   const state = useSelector((state) => {
@@ -41,26 +46,30 @@ const ForgetPassword = () => {
     }
   };
   return (
-    <div>
+    <div className="box flex">
+      <p className="boxTitle">Enter your current email ! </p>
+      <hr className="line" />
+      <input
+        className="input"
+        placeholder="Enter email..."
+        type="text"
+        onChange={(e) => setEmail(e.target.value)}
+      />
       <div>
-        <h1>Enter your current email ! </h1>
-        <input
-          placeholder="Enter email..."
-          type="text"
-          onChange={(e) => setEmail(e.target.value)}
-        />
-        <div>
-          <p>{message ? message : ""}</p>
-          <br />
-          {message.includes("Your email is not registered yet.") ? (
-            <Link to="/">Sign Up</Link>
-          ) : (
-            ""
-          )}
-        </div>
-        <br />
-        <button onClick={forgotPasswordFunc}>Send To my Email</button>
+        <p>{message ? message : ""}</p>
+    
+        {message.includes("Your email is not registered yet.") ? (
+          <Link to="/">Sign Up</Link>
+        ) : (
+          ""
+        )}
       </div>
+      <button className="btn" onClick={forgotPasswordFunc}>
+        Send To my Email
+      </button>
+      <p className="link" onClick={() => setToggle(true)}>
+        Back to login form
+      </p>
     </div>
   );
 };

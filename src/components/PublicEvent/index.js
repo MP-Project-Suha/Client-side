@@ -5,12 +5,15 @@ import { Link } from "react-router-dom";
 import "./style.css";
 
 const PublicEvent = ({ event }) => {
+
   return (
-    <>
+    < div className="card">
       <Link to={`/Event/${event._id}`}>
-        <p>{event.title}</p>
+        <img className="imgEvent" src={event.image}/>
+        <h1>{event.title}</h1>
+
       </Link>
-    </>
+    </div>
   );
 };
 

@@ -1,13 +1,29 @@
 @import url("https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Montserrat:ital,wght@0,400;0,500;1,500&family=Open+Sans:wght@300;400&family=Red+Hat+Mono:wght@500&family=Rubik&family=Rubik+Mono+One&display=swap");
+
+*{
+  font-family: "Rubik", sans-serif;
+  box-sizing: border-box;
+  /* font-family: "Rubik Mono One", sans-serif; */
+}
 body {
   margin: 0 auto;
   line-height: 1.875;
   width: 100%;
   box-sizing: border-box;
-  font-family: "Rubik", sans-serif;
+  font-family: "Rubik Mono One", sans-serif;
+  background-color:#ffffff;
+  color: #616161;
+
+
+}
+b{
+ font-weight: 700;
+}
+h1{
+  text-transform: capitalize;
 }
 .logo {
-  color: rgb(185, 60, 164);
+  color: #c8156e;
   font-family: "Rubik Mono One", sans-serif;
   font-size: 2rem;
   line-height: 0.25;
@@ -40,14 +56,15 @@ a {
   text-transform: uppercase;
   transition: all 0.4s;
   cursor: pointer;
-  border-color: rgba(253, 34, 106, 1);
+  border-color:  #c8156e;
   min-width: 130px;
   padding: 9px 30px;
 }
 .lightBtn:hover {
-  background-color: rgba(253, 34, 106, 1);
-  color: rgba(255, 255, 255, 1);
-  border-color: rgba(253, 34, 106, 1);
+  background-color:  #c8156e;
+  color: #ffffff;
+  /* color: #f3f3f3 ; */
+  border-color:  #c8156e;
 }
 .btn {
   border-radius: 50px;
@@ -59,32 +76,121 @@ a {
   font-weight: 500;
   letter-spacing: 0.07em;
   line-height: 20px;
-
-  border-width: 1px;
   border-style: solid;
   white-space: nowrap;
   text-align: center;
   text-transform: uppercase;
   transition: all 0.4s;
   cursor: pointer;
-  border-color: rgba(253, 34, 106, 1);
+  border-color:#c8156e;
   min-width: 130px;
   padding: 9px 30px;
-
-  color: rgba(255, 255, 255, 1);
-  background-color: rgba(253, 34, 106, 1);
+  color: #ffffff;
+  background-color: #c8156e;
 }
 .btn:hover {
-  background-color: rgba(255, 255, 255, 1);
-  color: rgba(253, 34, 106, 1);
-  border-color: rgba(253, 34, 106, 1);
+  background-color: #ffffff;
+  color:  #c8156e;
+  border-color:  #c8156e;
+  box-shadow: 0 15px 38px 10px rgb(0 0 0 / 10%);
 }
+
+.secondaryBtn{
+  border-radius: 50px;
+  border-width: 1px;
+  display: inline-block;
+  vertical-align: top;
+  margin-bottom: 20px;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.07em;
+  line-height: 20px;
+  border-style: solid;
+  white-space: nowrap;
+  text-align: center;
+  text-transform: uppercase;
+  transition: all 0.4s;
+  cursor: pointer;
+  border-color:#7c529c;
+  min-width: 130px;
+  padding: 9px 30px;
+  color: #ffffff;
+  background-color: #7c529c;
+
+}
+.secondaryBtn:hover{
+  background-color: #ffffff;
+  color:  #7c529c;
+  border-color:  #7c529c;
+  box-shadow: 0 15px 38px 10px rgb(0 0 0 / 10%);
+  
+}
+ .moof{
+  color: #7c529c;
+}
+
 main {
   margin-top: 5%;
   width: 100%;
   min-height: 70vh;
   display: flex;
   flex-direction: column;
-  align-content: center;
+  align-items: center;
   justify-content: flex-start;
 }
+#loading{
+  width: 200px;
+  margin: 0 auto;
+}
+
+h2{
+  /* font-family: Rubik; */
+  font-weight: 500;
+  font-size: 40px;
+  line-height: 52px;
+}
+/* .main{
+  margin: 0 auto;
+
+ display: flex;
+
+ align-items: center;
+} */
+
+
+.status{
+
+  color:#0000FF;
+  font-size: 1rem;
+  /* border: solid 2px #0000FF; */
+  /* border-radius: 25px; */
+  /* padding:10px; */
+  text-align: center;
+}
+
+
+.link{
+  cursor: pointer;
+  color: #000;
+  font-size: 13px;
+  text-align: center;
+}
+.link:hover{
+  color: #c8156e;
+}
+
+.input , textarea{
+	padding: 15px;
+	border: 1px solid #ccc;
+	border-radius: 3px;
+	margin-bottom: 10px;
+	width: 100%;
+	box-sizing: border-box;
+	font-family: montserrat;
+	color: #2C3E50;
+	font-size: 13px;
+    border-radius: 25px;
+	text-align: center;
+
+}
+

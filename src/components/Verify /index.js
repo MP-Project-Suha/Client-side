@@ -24,8 +24,8 @@ const Verify = () => {
   };
   return (
     <div>
-      <div>
-        <h1>Thank you for Verify your account . Please</h1>
+      <div className="box flex">
+        <h1 className="boxTitle">Thank you for Verify your account . Please</h1>
         <Link to="/">Log in</Link>
       </div>
     </div>

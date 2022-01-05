@@ -1,13 +1,13 @@
 import React, { useState, Fragment, useEffect } from "react";
-import { nanoid } from "nanoid";
-import "./style.css";
-import ReadOnlyRow from "./ReadOnlyRow";
-import EditableRow from "./EditableRow";
 import { useParams } from "react-router";
 import { useSelector } from "react-redux";
-import axios from "axios";
-import { locale } from "moment";
 import { Link, useLocation } from "react-router-dom";
+import axios from "axios";
+import { nanoid } from "nanoid";
+import ReadOnlyRow from "./ReadOnlyRow";
+import EditableRow from "./EditableRow";
+import "./style.css";
+
 
 const GuestList = () => {
   const { _id } = useParams();
@@ -33,7 +33,7 @@ const GuestList = () => {
   useEffect(() => {
     myEventTickets();
   }, []);
-  console.log("contacts", contacts);
+
   const state = useSelector((state) => {
     return {
       reducerLog: state.reducerLog,
@@ -133,8 +133,7 @@ const GuestList = () => {
           },
         }
       );
-
-      console.log("myEventTickets:-----", result.data);
+console.log(result.data);
       const res = result.data.map((elem) => {
         return {
           id: elem.createdBy._id,
@@ -142,9 +141,12 @@ const GuestList = () => {
           lastName: elem.createdBy.lastName,
           email: elem.createdBy.email,
           isVerified: elem.isVerified,
+          isUsed:elem.isUsed,
+
         };
       });
       setContacts(res);
+
     } catch (error) {
       console.log(error.response);
     }
@@ -161,15 +163,15 @@ const GuestList = () => {
           },
         }
       );
-      console.log(result.data);
-      myEventTickets()
+
+      myEventTickets();
     } catch (error) {
       console.log(error.response);
     }
   };
 
   return (
-    <div>
+    <div className="all">
       {/* banner */}
       <div className="guestList">
         <div className="cont">
@@ -182,13 +184,13 @@ const GuestList = () => {
       {/* main */}
       <div className="app-container">
         <form onSubmit={handleEditFormSubmit}>
-          <table>
+          <table className="table">
             <thead>
               <tr>
                 <th>First Name</th>
                 <th>Last Name</th>
                 <th>Email</th>
-                <th>Actions</th>
+                <th>Actions and Status</th>
               </tr>
             </thead>
             <tbody>
@@ -213,33 +215,57 @@ const GuestList = () => {
           </table>
         </form>
 
-        <h2>Add a Contact</h2>
-        <form className="form" onSubmit={handleAddFormSubmit}>
-          <input
-            type="text"
-            name="firstName"
-            required="required"
-            placeholder="Enter first name..."
-            onChange={handleAddFormChange}
-          />
-          <input
-            type="text"
-            name="lastName"
-            required="required"
-            placeholder="Enter last name..."
-            onChange={handleAddFormChange}
-          />
-          <input
-            type="email"
-            name="email"
-            required="required"
-            placeholder="Enter email..."
-            onChange={handleAddFormChange}
-          />
-          <button type="submit">Add</button>
-        </form>
+        <p>Add a Contact</p>
+        <form onSubmit={handleAddFormSubmit}>
+          <table className="table">
+            <tbody>
+              <tr>
+                <td>
+                  {" "}
+                  <input
+                    className="input"
+                    type="text"
+                    name="firstName"
+                    required="required"
+                    placeholder="Enter first name..."
+                    onChange={handleAddFormChange}
+                  />
+                </td>
+                <td>
+                  {" "}
+                  <input
+                    className="input"
+                    type="text"
+                    name="lastName"
+                    required="required"
+                    placeholder="Enter last name..."
+                    onChange={handleAddFormChange}
+                  />
+                </td>
+                <td>
+                  {" "}
+                  <input
+                    className="input"
+                    type="email"
+                    name="email"
+                    required="required"
+                    placeholder="Enter email..."
+                    onChange={handleAddFormChange}
+                  />
+                </td>
 
-        <button className="btn" onClick={sentGuests}>
+                <td>
+                  {" "}
+                  <button className="secondaryBtn" type="submit">
+                    Add
+                  </button>{" "}
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </form>
+        <br />
+        <button id="save" className="btn" onClick={sentGuests}>
           save and send tickets
         </button>
       </div>{" "}

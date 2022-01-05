@@ -1,0 +1,28 @@
+.box {
+  min-width: 30%;
+  min-height: 30vh;
+  margin: 7% auto;
+  padding:5%  !important;
+  background-color: #ffffff !important;
+  box-shadow: 0 15px 38px 10px rgb(0 0 0 / 10%);
+  border-radius: 25px;
+  z-index: 1;
+
+}
+
+.flex {
+  display: flex;
+  flex-direction: column;
+}
+
+.boxTitle{
+ text-align: center;
+ font-size: 1.5rem; 
+}
+
+.line{
+    width: 15%;
+    border-bottom: 1px solid #c8156e;
+    margin-top: -25px;
+    margin-bottom: 35px;
+}

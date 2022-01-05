@@ -1,5 +1,6 @@
 .contain{
     width: 100%;
+    min-height: 100vh;
 }
 .myEvent{
     box-sizing: border-box;
@@ -26,7 +27,7 @@ justify-content: flex-end;
     margin-left: 2vw;
 }
 .cont span{
-    color: white;
+    color: #ffffff;
     font-family: 'Rubik Mono One', sans-serif;
     font-size: 10vw !important;
     line-height: 1 !important;

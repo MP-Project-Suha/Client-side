@@ -29,9 +29,10 @@ const MyEvents = ({ myEvents, getMyEvents }) => {
                 key={`event${elem._id}`}
                 event={elem}
                 getMyEvents={getMyEvents}
+                
               />
             ))
-          : "no events"}
+          : <h3>No Events for you.. </h3>}
       </main>
     </div>
   );

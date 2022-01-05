@@ -9,7 +9,7 @@ const MyTicket = ({ticket,getMyTickets}) => {
         getMyTickets();
       }, []);
     return (
-        <div>
+        <div className="card flexCard">
                   <Link to={`/ticket/${ticket._id}`}>
         <p>{ticket.event.title}</p>
       </Link>

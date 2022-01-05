@@ -1,48 +1,93 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router";
+import { useParams } from "react-router";
+import Payment from "../Payment";
 //style
 import "./style.css";
 
-const PostTicket = ({ eventId }) => {
-
+const PostTicket = () => {
+  const navigator = useNavigate();
+  const { event } = useParams();
+  const [price, setPrice] = useState("");
+  const [donate, setDonate] = useState("");
   const state = useSelector((state) => {
     return {
       reducerLog: state.reducerLog,
     };
   });
-  const addTicket = async () => {
+
+  // if user dose not have an account navigate to login page
+  useEffect(() => {
+    if (!state.reducerLog.token) {
+      navigator("/login");
+    }
+  }, []);
+  useEffect(() => {
+    getEvent();
+  }, []);
+
+  const getEvent = async () => {
     try {
+      const result = await axios.get(
+        `${process.env.REACT_APP_BASE_URL}/event/${event}`
+      );
 
-
-        const result = await axios.post(
-            `${process.env.REACT_APP_BASE_URL}/myTicket/${eventId}`,{},
-            {
-              headers: {
-                Authorization: `Bearer ${state.reducerLog.token}`,
-              }
-            }
-          );
-      console.log(result);
-      if (result.status === 201) {
-        console.log("success");
+      if (result.data) {
+        console.log(result.data);
+       setPrice(result.data.price);
       }
+
+      
     } catch (error) {
       console.log(error);
     }
   };
+  console.log(donate);
+  // const addTicket = async () => {
+  //   try {
+
+  //       const result = await axios.post(
+  //           `${process.env.REACT_APP_BASE_URL}/myTicket/${event}`,{},
+  //           {
+  //             headers: {
+  //               Authorization: `Bearer ${state.reducerLog.token}`,
+  //             }
+  //           }
+  //         );
+  //     console.log(result);
+  //     if (result.status === 201) {
+  //       console.log("success");
+  //     }
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
 
   return (
-    <div>
-      <button
-      className="btn"
-        onClick={(e) => {
-          e.preventDefault();
-          addTicket();
-        }}
-      >
-        Get Ticket
-      </button>
+    <div className="myEvent">
+      {/* banner */}
+      <div className="myEvent">
+        <div className="cont"></div>
+      </div>
+      {/* main */}
+      <main className="event card">
+        <h2>Checkout Page</h2>
+        <p> You ticket price is {price && price ? price : "free"}</p>
+        <div className="donate">
+          <p>If you want to donate</p>
+
+          <input
+            className="input donate"
+            placeholder="RS"
+            type="number"
+            onClick={(e) => setDonate(e.target.value)}
+          />
+        </div>
+        <h1>payment</h1>
+        <Payment donate={donate} price={price} />
+      </main>
     </div>
   );
 };
