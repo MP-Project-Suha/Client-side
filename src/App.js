@@ -24,6 +24,8 @@ import Payment from "./components/Payment";
 import Cart from "./components/Cart";
 import PostTicketSuccess from "./components/PostTicketSuccess";
 import TicketReader from "./components/TicketReader";
+import EditEvent from "./components/EditEvent"
+import QRReader from "./components/QRReader"
 const App = () => {
   const [events, setEvents] = useState([]);
   const [myEvents, setMyEvents] = useState([]);
@@ -134,9 +136,16 @@ const App = () => {
   return (
     <div>
       <Header />
-
-      <Routes>
       
+      <Routes>
+      <Route exact 
+      path="/QrReader"
+      element={<QRReader/>}
+      />
+      <Route exact 
+      path="/editEvent/:event"
+      element={<EditEvent/>}
+      />
       <Route
           exact
           path="/TicketReader/:ticket"

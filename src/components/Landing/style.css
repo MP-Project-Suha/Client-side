@@ -8,6 +8,8 @@
 .banner {
   box-sizing: border-box;
   background-image: url("https://www.leadingauthorities.com/sites/default/files/2019-10/keynote-speaker-on-stage.details.jpg");
+  /* background-image: url("https://images.unsplash.com/photo-1565130936029-a26a11ecc813?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80"); */
+  /* https://firebasestorage.googleapis.com/v0/b/recipes-notebook-5d870.appspot.com/o/images%2Frev_slider_bg-2.jpeg?alt=media&token=78ae12f3-3a1f-400b-97be-4d1e4f01b674 */
   background-repeat: no-repeat;
   min-height: 100vh;
   position: relative;

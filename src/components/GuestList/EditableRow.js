@@ -1,4 +1,5 @@
 import React from "react";
+import "./style.css"
 
 const EditableRow = ({
   editFormData,
@@ -9,38 +10,41 @@ const EditableRow = ({
     <tr>
       <td>
         <input
+        className="input"
           type="text"
           required="required"
           placeholder="Enter a first name..."
           name="firstName"
           value={editFormData.firstName}
           onChange={handleEditFormChange}
-        ></input>
+       />
       </td>
       <td>
       <input
+           className="input"
           type="text"
           required="required"
           placeholder="Enter a last name..."
           name="lastName"
           value={editFormData.lastName}
           onChange={handleEditFormChange}
-        ></input>
+          />
       </td>
 
       <td>
         <input
+          className="input"
           type="email"
           required="required"
           placeholder="Enter an email..."
           name="email"
           value={editFormData.email}
           onChange={handleEditFormChange}
-        ></input>
+          />
       </td>
       <td>
-        <button type="submit">Save</button>
-        <button type="button" onClick={handleCancelClick}>
+        <button  className="secondaryBtn"  type="submit">Save</button>
+        <button className="secondaryBtn"  type="button" onClick={handleCancelClick}>
           Cancel
         </button>
       </td>

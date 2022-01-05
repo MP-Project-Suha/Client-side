@@ -1,7 +1,7 @@
 .card {
     /* max-width: 80ch;
     max-height: 80ch; */
-    min-width: 80%;
+    width: 70%;
     min-height: 50%;
     background: rgba(128, 128, 128, 0.048);
     border-radius: 5px;
@@ -12,7 +12,7 @@
     transition: box-shadow 0.5s;
     will-change: transform;
     border: 15px solid #ffffff;
-    margin: 20px;
+    margin: 40px auto;
   }
   
   .card:hover {
@@ -21,4 +21,6 @@
   }
   .imgEvent{
       width: 100%;
+      height: 40vh;
+      object-fit: cover;
   }

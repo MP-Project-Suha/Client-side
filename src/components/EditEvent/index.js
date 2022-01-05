@@ -11,11 +11,11 @@ import DateAndTime from "../DateAndTime";
 import "./style.css";
 import "react-datepicker/dist/react-datepicker.css";
 
-const CreateEvent = ({ getRecipes }) => {
+const EditEvent = ({ getRecipes }) => {
 
+const {event} =useParams()
 
-
-
+const [eventData, setEventData] = useState(null);
   const [user, setUser] = useState(null);
   const [message, setMessage] = useState("");
   const [url, setUrl] = useState("");
@@ -53,12 +53,25 @@ const CreateEvent = ({ getRecipes }) => {
 
   useEffect(() => {
   if (!state.reducerLog.user) navigate('/login')
+  getEvent()
   }, []);
-
-  const createEvent = async () => {
+  const getEvent = async () => {
     try {
-      const res = await axios.post(
-        `${process.env.REACT_APP_BASE_URL}/myEvent`,
+      const result = await axios.get(
+        `${process.env.REACT_APP_BASE_URL}/event/${event}`
+      );
+console.log(result.data);
+      if (result.data) {
+        setEventData(result.data);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  const editEvent = async () => {
+    try {
+      const res = await axios.put(
+        `${process.env.REACT_APP_BASE_URL}/myEvent/${event}`,
         {
           title,
           shortDisc,
@@ -81,7 +94,7 @@ const CreateEvent = ({ getRecipes }) => {
       console.log(res);
       if (res.status === 201) {
         setMessage("success");
-        navigate("/Events");
+        navigate(`/Event/${res.data._id}`);
       } else {
         setMessage("sorry, something wrong happened");
       }
@@ -99,29 +112,34 @@ const CreateEvent = ({ getRecipes }) => {
     };
     
   return (
+    eventData&&
     <div className="all">
+ 
       {/* banner */}
       <div className="myEvent">
         <div className="cont">
           <p>
             <Link to="/"> Home </Link> -
           </p>
-          <span>Made yours</span>
+          <span>{eventData.title}</span>
         </div>
       </div>
       {/* main */}
       <div className="app-container">
+
         <form
         className="creat"
           method="POST"
           onSubmit={(e) => {
             e.preventDefault();
-            createEvent();
+            editEvent();
           }}
         >
-          <h1> Create Event </h1>
+           
+          <h1> Edit Your Event </h1>
           
           <input
+           defaultValue={eventData.title}
             className="input"
             type="text"
             name="title"
@@ -131,6 +149,7 @@ const CreateEvent = ({ getRecipes }) => {
             onChange={(e) => setTitle(e.target.value)}
           />
           <textarea
+           defaultValue={eventData.shortDisc}
             type="text"
             name="Short Description.."
             rows="5"
@@ -140,6 +159,7 @@ const CreateEvent = ({ getRecipes }) => {
           />
           <br />
           <textarea
+           defaultValue={eventData.longDisc}
             type="text"
             name="longDisc"
             rows="5"
@@ -149,6 +169,7 @@ const CreateEvent = ({ getRecipes }) => {
           />
           <br />
           <input
+          defaultValue={eventData.location}
             className="input"
             type="text"
             name="location"
@@ -159,6 +180,7 @@ const CreateEvent = ({ getRecipes }) => {
           />
           <br />
           <input
+           defaultValue={eventData.price}
             className="input"
             type="number"
             name="price"
@@ -239,10 +261,12 @@ const CreateEvent = ({ getRecipes }) => {
               <Link className="btn" to="/"> Cancel </Link>
             <input className="btn" type="submit" value=" Save " />{" "}
           </div>
+          
         </form>
       </div>
+     
     </div>
   );
 };
 
-export default CreateEvent;
+export default EditEvent;

@@ -7,19 +7,26 @@ const ReadOnlyRow = ({ contact, handleEditClick, handleDeleteClick }) => {
       <td>{contact.firstName}</td>
       <td>{contact.lastName}</td>
       <td>{contact.email}</td>
-      {contact.isVerified?  <td> ticket sent to email </td>:
-      <td>
-        <button
-          type="button"
-          onClick={(event) => handleEditClick(event, contact)}
-        >
-          Edit
-        </button>
-        <button type="button" onClick={() => handleDeleteClick(contact.id)}>
-          Delete
-        </button>
-      </td>
-    }
+      {contact.isVerified ? (
+        <td> Ticket sent and {contact.isUsed? "used": "did not used yet" } </td>
+      ) : (
+        <td>
+          <button
+            className="secondaryBtn"
+            type="button"
+            onClick={(event) => handleEditClick(event, contact)}
+          >
+            Edit
+          </button>
+          <button
+            className="secondaryBtn"
+            type="button"
+            onClick={() => handleDeleteClick(contact.id)}
+          >
+            Delete
+          </button>
+        </td>
+      )}
     </tr>
   );
 };

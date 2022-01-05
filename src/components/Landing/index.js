@@ -40,16 +40,7 @@ const Landing = ({ events, allPublicEvents }) => {
             </div>
           </div>
         </div>
-        {/* {events && events.length ? (
-          events.map((elem, i) => (
-            <PublicEvent event={elem} allPublicEvents={allPublicEvents} />
-          ))
-        ) : (
-          <img
-            id="loading"
-            src="https://i.pinimg.com/originals/1e/5c/0b/1e5c0bc454c49fb59a58a19f378d64e6.gif"
-          />
-        )} */}
+
       </main>
       <VisibilitySensor partialVisibility offset={{ bottom: 200 }}>
         {({ isVisible }) => (
@@ -66,7 +57,7 @@ const Landing = ({ events, allPublicEvents }) => {
              prefix="<p class='counterText'>Events <span>Until</span> Now </p>"
              suffix=""
            />
-            : 75 }
+            :<div className="counter"> <p className='counterText'>Events <span>Until</span> Now  0</p> </div> }
           </div>
         )}
       </VisibilitySensor>
@@ -80,20 +71,38 @@ const Landing = ({ events, allPublicEvents }) => {
         </div>
         <div className="flex">
         <div className="flexImg">
-          <div  className="d">
+
+
+        {events && events.length!==0 ? (
+          events.map((elem, i) => (
+              <div  className="d">
           <img
             className="dd"
-            src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80"
+            src={elem.image}
+          /></div>
+          ))
+        ) : (
+          <img
+            id="loading"
+            src="https://i.pinimg.com/originals/1e/5c/0b/1e5c0bc454c49fb59a58a19f378d64e6.gif"
+          />
+        )}
+
+          {/* <div  className="d">
+          <img
+            className="dd"
+            src={events&& events[0].image}
           /></div>
           <div  className="d"><img
           className="dd"
-            src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80"
+          src={events&& events[1].image}
           /></div>  
               <div  className="d"> <img
            className="dd"
-            src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80"
+           src={events&& events[2].image}
           /></div>  
-         </div>
+          */}
+        </div>
         </div>
       </div>
 

@@ -10,6 +10,7 @@ const PublicEvents = ({ events, allPublicEvents }) => {
   useEffect(() => {
     allPublicEvents();
   }, []);
+  console.log(events);
   return (
     <div>
             {/* banner */}
@@ -23,8 +24,8 @@ const PublicEvents = ({ events, allPublicEvents }) => {
       </div>
 {/* main */}
       <main>
-        <h2>Meet Our Official Sponsors & Partners</h2>
-        {events && events.length ? (
+        <h2>Join One Of This Events And Get Your Ticket</h2>
+        {events&& events.length? (
           events.map((elem) => (
             <PublicEvent event={elem} allPublicEvents={allPublicEvents} />
           ))

@@ -1,13 +1,13 @@
 import React, { useState, Fragment, useEffect } from "react";
-import { nanoid } from "nanoid";
-import "./style.css";
-import ReadOnlyRow from "./ReadOnlyRow";
-import EditableRow from "./EditableRow";
 import { useParams } from "react-router";
 import { useSelector } from "react-redux";
-import axios from "axios";
-import { locale } from "moment";
 import { Link, useLocation } from "react-router-dom";
+import axios from "axios";
+import { nanoid } from "nanoid";
+import ReadOnlyRow from "./ReadOnlyRow";
+import EditableRow from "./EditableRow";
+import "./style.css";
+
 
 const GuestList = () => {
   const { _id } = useParams();
@@ -33,7 +33,7 @@ const GuestList = () => {
   useEffect(() => {
     myEventTickets();
   }, []);
-  
+
   const state = useSelector((state) => {
     return {
       reducerLog: state.reducerLog,
@@ -133,8 +133,7 @@ const GuestList = () => {
           },
         }
       );
-
-     
+console.log(result.data);
       const res = result.data.map((elem) => {
         return {
           id: elem.createdBy._id,
@@ -142,9 +141,12 @@ const GuestList = () => {
           lastName: elem.createdBy.lastName,
           email: elem.createdBy.email,
           isVerified: elem.isVerified,
+          isUsed:elem.isUsed,
+
         };
       });
       setContacts(res);
+
     } catch (error) {
       console.log(error.response);
     }
@@ -161,7 +163,7 @@ const GuestList = () => {
           },
         }
       );
-     
+
       myEventTickets();
     } catch (error) {
       console.log(error.response);
@@ -169,7 +171,6 @@ const GuestList = () => {
   };
 
   return (
-  
     <div className="all">
       {/* banner */}
       <div className="guestList">
@@ -189,7 +190,7 @@ const GuestList = () => {
                 <th>First Name</th>
                 <th>Last Name</th>
                 <th>Email</th>
-                <th>Actions</th>
+                <th>Actions and Status</th>
               </tr>
             </thead>
             <tbody>
@@ -215,48 +216,56 @@ const GuestList = () => {
         </form>
 
         <p>Add a Contact</p>
-        <form  onSubmit={handleAddFormSubmit}>
-        <table className="table">
-        {/* <thead>
+        <form onSubmit={handleAddFormSubmit}>
+          <table className="table">
+            <tbody>
               <tr>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>Email</th>
-                <th>Actions</th>
+                <td>
+                  {" "}
+                  <input
+                    className="input"
+                    type="text"
+                    name="firstName"
+                    required="required"
+                    placeholder="Enter first name..."
+                    onChange={handleAddFormChange}
+                  />
+                </td>
+                <td>
+                  {" "}
+                  <input
+                    className="input"
+                    type="text"
+                    name="lastName"
+                    required="required"
+                    placeholder="Enter last name..."
+                    onChange={handleAddFormChange}
+                  />
+                </td>
+                <td>
+                  {" "}
+                  <input
+                    className="input"
+                    type="email"
+                    name="email"
+                    required="required"
+                    placeholder="Enter email..."
+                    onChange={handleAddFormChange}
+                  />
+                </td>
+
+                <td>
+                  {" "}
+                  <button className="secondaryBtn" type="submit">
+                    Add
+                  </button>{" "}
+                </td>
               </tr>
-            </thead> */}
-        <tbody>
-        <tr>
-        <td> <input
-            type="text"
-            name="firstName"
-            required="required"
-            placeholder="Enter first name..."
-            onChange={handleAddFormChange}
-          /></td> 
-          <td>  <input
-            type="text"
-            name="lastName"
-            required="required"
-            placeholder="Enter last name..."
-            onChange={handleAddFormChange}
-          /></td> 
-         <td>   <input
-            type="email"
-            name="email"
-            required="required"
-            placeholder="Enter email..."
-            onChange={handleAddFormChange}
-          /></td> 
-         
-         <td>  <button type="submit">Add</button> </td> 
-          </tr>
-          </tbody>
-          </table >
+            </tbody>
+          </table>
         </form>
         <br />
         <button id="save" className="btn" onClick={sentGuests}>
-          
           save and send tickets
         </button>
       </div>{" "}

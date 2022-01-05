@@ -14,8 +14,14 @@ body {
   background-color:#ffffff;
   color: #616161;
 
-}
 
+}
+b{
+ font-weight: 700;
+}
+h1{
+  text-transform: capitalize;
+}
 .logo {
   color: #c8156e;
   font-family: "Rubik Mono One", sans-serif;
@@ -129,7 +135,7 @@ main {
   min-height: 70vh;
   display: flex;
   flex-direction: column;
-  align-content: center;
+  align-items: center;
   justify-content: flex-start;
 }
 #loading{
@@ -153,14 +159,15 @@ h2{
 
 
 .status{
-  background-color:  #fff;
+
   color:#0000FF;
-  font-size: 0.7rem;
-  border: solid 2px #0000FF;
-  border-radius: 25px;
-  padding:5px;
+  font-size: 1rem;
+  /* border: solid 2px #0000FF; */
+  /* border-radius: 25px; */
+  /* padding:10px; */
   text-align: center;
 }
+
 
 .link{
   cursor: pointer;

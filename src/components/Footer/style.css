@@ -6,8 +6,9 @@
   flex-direction: row;
   align-items: center;
   justify-content:flex-start;
+  border-top: 1.5px solid #7c529c3d;
   box-shadow: 0 15px 38px 10px rgb(0 0 0 / 10%);
-  margin-top: 80px !important;
+  /* margin-top: 80px !important; */
 }
 
 .footerLogo {
