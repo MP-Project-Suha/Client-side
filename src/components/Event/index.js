@@ -43,7 +43,7 @@ const Event = () => {
       {event && (
         <main className="event card contentEvent">
           <h1> {event.title} </h1>
-          <img src={event.image} />
+          <img  className="imgE" src={event.image} />
 
           <p>
             {" "}

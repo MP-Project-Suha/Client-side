@@ -10,7 +10,11 @@ const Landing = ({ events, allPublicEvents }) => {
     <div className="contain">
       {/* banner */}
       <div className="banner">
-        <div className="contHome"></div>
+        <div className="contHome">
+        <div className="relative">
+          <span className="white">Eventi</span>
+        </div>
+        </div>
       </div>
       {/* main */}
       <main>
