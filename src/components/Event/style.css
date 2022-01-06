@@ -2,3 +2,7 @@
 .contentEvent{
     padding: 10%
 }
+.imgE{
+    width: 100%;
+    object-fit: cover;
+}
