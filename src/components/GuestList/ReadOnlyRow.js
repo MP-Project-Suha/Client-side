@@ -1,4 +1,6 @@
 import React from "react";
+import {AiFillEdit} from "react-icons/ai"
+import {TiDelete} from "react-icons/ti"
 
 const ReadOnlyRow = ({ contact, handleEditClick, handleDeleteClick }) => {
   // console.log(contact);
@@ -11,20 +13,20 @@ const ReadOnlyRow = ({ contact, handleEditClick, handleDeleteClick }) => {
         <td> Ticket sent and {contact.isUsed? "used": "did not used yet" } </td>
       ) : (
         <td>
-          <button
-            className="secondaryBtn"
+          <label
+           className="icon"
             type="button"
             onClick={(event) => handleEditClick(event, contact)}
           >
-            Edit
-          </button>
-          <button
-            className="secondaryBtn"
+            <AiFillEdit/>
+          </label>
+          <label
+     className="icon"
             type="button"
             onClick={() => handleDeleteClick(contact.id)}
           >
-            Delete
-          </button>
+           <TiDelete/>
+          </label>
         </td>
       )}
     </tr>

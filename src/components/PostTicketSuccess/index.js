@@ -7,7 +7,6 @@ import "./style.css";
 import { useNavigate, useParams } from "react-router";
 
 const PostTicketSuccess = ({ getMyPendingTickets }) => {
-  // console.log("suc");
   const navigator = useNavigate();
   const { event } = useParams();
 
@@ -32,7 +31,7 @@ const PostTicketSuccess = ({ getMyPendingTickets }) => {
       console.log(result.data.newTicket);
       if (result.status === 201) {
         console.log("success");
-        navigator(`/ticket/${result.data.newTicket._id}/${result.data.token}`);
+        navigator(`/ticket/${result.data.newTicket._id}`);// /${result.data.token}
         // getMyPendingTickets()
       }
     } catch (error) {

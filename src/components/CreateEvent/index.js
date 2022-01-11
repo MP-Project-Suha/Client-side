@@ -1,17 +1,17 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { useNavigate, useParams, Link } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+import { useNavigate, Link } from "react-router-dom";
+import {  useSelector } from "react-redux";
 
 import DatePicker from "react-datepicker";
 //childe components 
 import UploadImage from "../UploadImage";
-import DateAndTime from "../DateAndTime";
+
 // style file
 import "./style.css";
 import "react-datepicker/dist/react-datepicker.css";
 
-const CreateEvent = ({ getRecipes }) => {
+const CreateEvent = () => {
 
 
 
@@ -112,7 +112,7 @@ const CreateEvent = ({ getRecipes }) => {
       {/* main */}
       <div className="app-container">
         <form
-        className="creat"
+        className="form"
           method="POST"
           onSubmit={(e) => {
             e.preventDefault();

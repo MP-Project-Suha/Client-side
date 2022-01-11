@@ -1,44 +1,43 @@
-.contain{
-    width: 100%;
-    min-height: 100vh;
+.contain {
+  width: 100%;
+  min-height: 100vh;
 }
-.myEvent{
-    box-sizing: border-box;
-background-image: url(http://genesisexpo.wgl-demo.net/wp-content/uploads/2018/10/bg-chairs.jpg);
-background-repeat: no-repeat;
-min-height: 50vh;
-position:relative;
-top: 0;
-height: 100%;
-display: flex;
-flex-direction: column;
-align-items:flex-start;
-justify-content: flex-end;
-
+.myEvent {
+  box-sizing: border-box;
+  background-image: url(http://genesisexpo.wgl-demo.net/wp-content/uploads/2018/10/bg-chairs.jpg);
+  background-repeat: no-repeat;
+  min-height: 50vh;
+  position: relative;
+  top: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-end;
+  /* background-size: cover; */
 }
-.cont{
-
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items:flex-start;
-    justify-content: flex-end;
-    margin-bottom: -2.5vh;
-    margin-left: 2vw;
+.cont {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-end;
+  margin-bottom: -3.4vh;
+  margin-left: 2vw;
 }
-.cont span{
-    color: #ffffff;
-    font-family: 'Rubik Mono One', sans-serif;
-    font-size: 10vw !important;
-    line-height: 1 !important;
-  
+.cont span {
+  color: #ffffff;
+  font-family: "Rubik Mono One", sans-serif;
+  font-size: 10vw !important;
+  line-height: 1 !important;
 }
-.cont p, a{
-    vertical-align: baseline;
-    margin-bottom: 20px;
-    color: #fd226a;
-    font-size: 20px;
-    line-height: 24px;
-    font-weight: 300;
-    font-family: Open Sans;
+.cont p,
+a {
+  vertical-align: baseline;
+  margin-bottom: 20px;
+  color: #fd226a;
+  font-size: 20px;
+  line-height: 24px;
+  font-weight: 300;
+  font-family: Open Sans;
 }

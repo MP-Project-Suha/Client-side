@@ -38,7 +38,7 @@ const UploadImage = ({ setUrl }) => {
   return (
     <div className="uploader">
       <label className="file">
-        Choose Event Photo 
+        Choose Photo 
       <input type="file" onChange={handleChange} /></label>
       {image ? (
         <div className="uploader">

@@ -26,6 +26,7 @@ import PostTicketSuccess from "./components/PostTicketSuccess";
 import TicketReader from "./components/TicketReader";
 import EditEvent from "./components/EditEvent"
 import QRReader from "./components/QRReader"
+import Profile from "./components/Profile"
 const App = () => {
   const [events, setEvents] = useState([]);
   const [myEvents, setMyEvents] = useState([]);
@@ -138,6 +139,11 @@ const App = () => {
       <Header />
       
       <Routes>
+      
+      <Route exact 
+      path="/Profile"
+      element={<Profile/>}
+      />
       <Route exact 
       path="/QrReader"
       element={<QRReader/>}

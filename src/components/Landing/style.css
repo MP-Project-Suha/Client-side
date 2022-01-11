@@ -1,28 +1,26 @@
-/* .banner {
-    background-image: url("https://nbccongrescentrum.nl/content/uploads/2019/11/De-event-trends-voor-2020-NBC-Congrescentrum.jpg");
-} */
+@import url("https://fonts.googleapis.com/css2?family=Rubik&display=swap");
 .contain {
   width: 100%;
   min-height: 100vh;
 }
 .banner {
   box-sizing: border-box;
-  background-image: url("https://www.leadingauthorities.com/sites/default/files/2019-10/keynote-speaker-on-stage.details.jpg");
-  /* background-image: url("https://images.unsplash.com/photo-1565130936029-a26a11ecc813?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80"); */
-  /* https://firebasestorage.googleapis.com/v0/b/recipes-notebook-5d870.appspot.com/o/images%2Frev_slider_bg-2.jpeg?alt=media&token=78ae12f3-3a1f-400b-97be-4d1e4f01b674 */
-  background-repeat: no-repeat;
-  min-height: 100vh;
-  position: relative;
-  top: 0;
+  height: 110vh;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-end;
-  background-size: 100% 100vh;
   position: relative;
+  background-image: url("http://genesisexpo.wgl-demo.net/wp-content/themes/genesisexpo/img/wave_header.svg"),
+    url("https://genesisexpo.wgl-demo.net/wp-content/uploads/2018/10/rev-slider-03.jpg");
+  background-position: left bottom, left top;
+  background-repeat: no-repeat, no-repeat;
+  background-size: 100% 35vh, 100% 110vh;
 }
 .contHome {
-  height: 100%;
+
+  width: 40%;
+  min-height: 80vh;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
@@ -30,8 +28,13 @@
   margin-bottom: -2.8vh;
   margin-right: 2vw;
   position: absolute;
-  right: 0;
-  bottom: 200px;
+  bottom: -20px;
+  left: 30px;
+  /* bottom: 200px; */
+  /* background-image: url("http://genesisexpo.wgl-demo.net/wp-content/themes/genesisexpo/img/wave_header.svg") */
+}
+.contHome:hover{
+
 }
 .contHome span {
   color: #ffffff;
@@ -126,7 +129,6 @@ span {
 }
 .boxShadow {
   min-height: 30vh;
-  /* margin-top: -10px !important; */
   padding-right: 75px !important;
   padding-left: 75px !important;
   background-image: url("https://firebasestorage.googleapis.com/v0/b/recipes-notebook-5d870.appspot.com/o/images%2Fwave_4.png?alt=media&token=a7aae98d-4af1-4eb7-81f0-26c344af8181"),
@@ -148,7 +150,6 @@ span {
   min-width: 100%;
   min-height: 50vh;
   display: flex;
-  /* flex-direction: column; */
   justify-content: center;
   align-items: center;
 }
@@ -203,29 +204,27 @@ h1 {
   width: 80%;
   /* min-height: 60vh; */
 }
-.d{
+.d {
   width: 30%;
   height: 55vh;
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 25px;
-cursor: pointer;
-background-color: #131120;
-transition: all .3s ease;
+  cursor: pointer;
+  background-color: #131120;
+  transition: all 0.3s ease;
 }
-.d:hover{
+.d:hover {
   background-color: #131120;
   transition: all 400ms;
   opacity: 0.7;
-
 }
 .dd {
   width: 90%;
   height: 50vh;
   border-radius: 25px;
   object-fit: cover;
-
 }
 
 .flexImg {
@@ -239,4 +238,14 @@ transition: all .3s ease;
 
 .title {
   color: #20132c;
+}
+
+p.bannerText {
+  z-index: 1;
+  font-family: "Rubik", sans-serif;
+  color: rgb(255, 255, 255);
+  line-height: 100px;
+  font-weight: 500;
+  font-size: 80px;
+  text-align: left;
 }
