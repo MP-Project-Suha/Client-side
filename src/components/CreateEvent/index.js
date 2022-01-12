@@ -5,7 +5,7 @@ import {  useSelector } from "react-redux";
 
 import DatePicker from "react-datepicker";
 //childe components 
-import UploadImage from "../UploadImage";
+// import UploadImage from "../UploadImage";
 
 // style file
 import "./style.css";
@@ -233,7 +233,7 @@ const CreateEvent = () => {
       />
           </div>
           {/* <Location/> */}
-          <UploadImage setUrl={setUrl} />
+          {/* <UploadImage setUrl={setUrl} /> */}
           {message ? <p> {message}</p> : ""}
           <div className="btnsContainer">
               <Link className="btn" to="/"> Cancel </Link>
