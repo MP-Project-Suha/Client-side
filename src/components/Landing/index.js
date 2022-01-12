@@ -13,7 +13,12 @@ const Landing = ({ events, allPublicEvents }) => {
       <div className="banner">
         <div className="contHome">
         <p className="bannerText">Now is Your Time, Create Yours!</p>
-        <bottom className="btn"> Create Event</bottom>
+        <bottom  className="btn" onClick={(e)=>{
+                e.preventDefault()
+                navigator(`/createEvent`)
+              }}
+            
+            > Create Event</bottom>
         <div className="relative">
         
       
