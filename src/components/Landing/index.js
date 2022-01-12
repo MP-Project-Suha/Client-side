@@ -1,18 +1,27 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link ,useNavigate} from "react-router-dom";
 import PublicEvent from "../PublicEvent";
 import CountUp from "react-countup";
 import VisibilitySensor from 'react-visibility-sensor';
 import "./style.css";
 
 const Landing = ({ events, allPublicEvents }) => {
+  const navigator = useNavigate()
   return (
     <div className="contain">
       {/* banner */}
       <div className="banner">
         <div className="contHome">
+        <p className="bannerText">Now is Your Time, Create Yours!</p>
+        <bottom  className="btn" onClick={(e)=>{
+                e.preventDefault()
+                navigator(`/createEvent`)
+              }}
+            
+            > Create Event</bottom>
         <div className="relative">
-          <span className="white">Eventi</span>
+        
+      
         </div>
         </div>
       </div>
@@ -28,19 +37,21 @@ const Landing = ({ events, allPublicEvents }) => {
         <div className="big">
           <img
             id="a"
-            src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80"
+            src={events&& events[0].image}
           />
           <div className="b">
             <div className="y">
               <h1 className="title">Riyadh's Company Event</h1>
               <hr className="line" />
               <p>
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry. Lorem Ipsum has been the when an unknown printer took.
-                <br />- Saudi Arabia, Riyadh, Kingdom Tour.
+               {events&& events[0].shortDisc}
+                <br />- { events&& events[0].location}
               </p>
 
-              <button className="secondaryBtn">See more</button>
+              <button onClick={(e)=>{
+                e.preventDefault()
+                navigator(`/Event/${ events&& events[0]._id}`)
+              }} className="secondaryBtn">See more</button>
             </div>
           </div>
         </div>
@@ -83,6 +94,10 @@ const Landing = ({ events, allPublicEvents }) => {
           <img
             className="dd"
             src={elem.image}
+            onClick={(e)=>{
+              e.preventDefault()
+              navigator(`/Event/${ elem._id}`)
+            }}
           /></div>
           ))
         ) : (

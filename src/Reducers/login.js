@@ -25,6 +25,10 @@ const initialState = {
         localStorage.removeItem("user");
         return payload ;
 
+        case "UPDATE":
+          localStorage.setItem("user",JSON.stringify(payload.user));
+          return { token: payload.token, user: payload.user };
+
       default:
         const storageToken = localStorage.getItem("token")
         const storageUser = localStorage.getItem("user")
@@ -49,6 +53,13 @@ const initialState = {
   export const logOut = (data) => {
     return {
       type: "LOGOUT",
+      payload: data,
+    };
+  };
+  export const update = (data) => {
+
+    return {
+      type: "UPDATE",
       payload: data,
     };
   };

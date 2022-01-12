@@ -130,7 +130,7 @@ a {
 }
 
 main {
-  margin-top: 5%;
+  /* margin-top: 5%; */
   width: 100%;
   min-height: 70vh;
   display: flex;
