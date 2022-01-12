@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 import DatePicker from "react-datepicker";
 //childe components 
-import UploadImage from "../UploadImage";
+import UploadImage from "../UploadImage/index.js";
 import DateAndTime from "../DateAndTime";
 // style file
 import "./style.css";
