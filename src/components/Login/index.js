@@ -135,7 +135,8 @@ const Login = () => {
           </p>
           <GoogleLogin
             className="input"
-            clientId="61276267155-5b31fjejqkcbo2h59bj9ci8lnitjjhmk.apps.googleusercontent.com"
+            clientId="
+            61276267155-5b31fjejqkcbo2h59bj9ci8lnitjjhmk.apps.googleusercontent.com"
             buttonText="Login With Gmail"
             onSuccess={responseSuccessGoogle}
             onFailure={responseErrorGoogle}

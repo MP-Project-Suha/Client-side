@@ -24,9 +24,9 @@ import Payment from "./components/Payment";
 import Cart from "./components/Cart";
 import PostTicketSuccess from "./components/PostTicketSuccess";
 import TicketReader from "./components/TicketReader";
-import EditEvent from "./components/EditEvent"
-import QRReader from "./components/QRReader"
-import Profile from "./components/Profile"
+import EditEvent from "./components/EditEvent";
+import QRReader from "./components/QRReader";
+import Profile from "./components/Profile";
 const App = () => {
   const [events, setEvents] = useState([]);
   const [myEvents, setMyEvents] = useState([]);
@@ -68,8 +68,6 @@ const App = () => {
           },
         }
       );
-      // console.log("m");
-      // console.log(result.data);
       setMyEvents(result.data);
     } catch (error) {
       console.log(error.response);
@@ -137,35 +135,18 @@ const App = () => {
   return (
     <div>
       <Header />
-      
+
       <Routes>
-      
-      <Route exact 
-      path="/Profile"
-      element={<Profile/>}
-      />
-      <Route exact 
-      path="/QrReader"
-      element={<QRReader/>}
-      />
-      <Route exact 
-      path="/editEvent/:event"
-      element={<EditEvent/>}
-      />
-      <Route
-          exact
-          path="/TicketReader/:ticket"
-          element={<TicketReader/>}
-        />
+        <Route exact path="/Profile" element={<Profile />} />
+        <Route exact path="/QrReader" element={<QRReader />} />
+        <Route exact path="/editEvent/:event" element={<EditEvent />} />
+        <Route exact path="/TicketReader/:ticket" element={<TicketReader />} />
         <Route
           exact
           path="/PostTicketSuccess/:event"
-          element={<PostTicketSuccess  getMyPendingTickets={ getMyPendingTickets}/>}
-        />
-        <Route
-          exact
-          path="/cart"
-          element={<Cart getMyPendingTickets={getMyPendingTickets}  myPendingTickets={myPendingTickets}  order={ order} />}
+          element={
+            <PostTicketSuccess getMyPendingTickets={getMyPendingTickets} />
+          }
         />
         <Route exact path="/payment/:event" element={<Payment />} />
         <Route exact path="/qr" element={<QR />} />
@@ -176,6 +157,7 @@ const App = () => {
             <MyTickets getMyTickets={getMyTickets} myTickets={myTickets} />
           }
         />
+        <Route exact path="/GuestList/:_id" element={<GuestList />} />
         <Route exact path="/ticket/:_id" element={<Ticket />} />
         <Route exact path="/postTicket/:event" element={<PostTicket />} />
         <Route
@@ -190,9 +172,15 @@ const App = () => {
             <PublicEvents allPublicEvents={allPublicEvents} events={events} />
           }
         />
-        <Route exact path="/GuestList/:_id" element={<GuestList />} />
+
         <Route exact path="/Event/:eventId" element={<Event />} />
-        <Route exact path="/" element={<Landing allPublicEvents={allPublicEvents} events={events} />} />
+        <Route
+          exact
+          path="/"
+          element={
+            <Landing allPublicEvents={allPublicEvents} events={events} />
+          }
+        />
         <Route exact path="/login" element={<Login />} />
         <Route exact path="/register" element={<Register />} />
         <Route exact path="/verify/:token2" element={<Verify />} />

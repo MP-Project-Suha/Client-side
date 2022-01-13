@@ -7,9 +7,9 @@ const MyTickets = ({myTickets,getMyTickets}) => {
   const { pathname } = location;
   const splitLocation = pathname.split("/");
  
-  // useEffect(() => {
-  //   getMyTickets();
-  // }, []);
+  useEffect(() => {
+    getMyTickets();
+  }, []);
     return (
       <div className="contain">
             {/* banner */}

@@ -1,5 +1,5 @@
 .box {
-  min-width: 30%;
+  width: 50%;
   min-height: 30vh;
   margin: 7% auto;
   padding:5%  !important;
