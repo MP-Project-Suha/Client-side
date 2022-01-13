@@ -23,7 +23,7 @@ const Ticket = () => {
       if (result.data) {
         setTicket(result.data.result);
         setUrl(
-          `http://localhost:3000/` +
+          `https://eventi-webapp.herokuapp.com/` +
             `TicketReader` +
             `/` +
             result.data.result._id

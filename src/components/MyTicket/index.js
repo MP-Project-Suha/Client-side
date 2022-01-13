@@ -12,7 +12,7 @@ const MyTicket = ({ ticket, getMyTickets }) => {
     <div className="card flexTicket">
         <p>{ticket.event.title}</p>
         <QRCode
-          value={`http://localhost:3000/` + `TicketReader` + `/` + ticket._id}
+          value={`https://eventi-webapp.herokuapp.com/` + `TicketReader` + `/` + ticket._id}
         />
     </div>
     </Link>
