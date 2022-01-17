@@ -88,6 +88,6 @@
 
 ## Links:
 * [Trello](https://trello.com/b/xefVOZOx/master-piece-project)
-* [Deploy](http://eventi-webapp.herokuapp.com/Public)
+* [Deploy](http://eventi-webapp.herokuapp.com)
 * [Server-Side](https://github.com/MP-Project-Suha/Server-side)
 * [Slides]
