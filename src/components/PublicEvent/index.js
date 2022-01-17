@@ -8,7 +8,7 @@ const PublicEvent = ({ event }) => {
 
   return (
     < div className="card">
-      <Link to={`/Event/${event._id}`}>
+      <Link className="cardLink" to={`/Event/${event._id}`}>
         <img className="imgEvent" src={event.image}/>
         <h1>{event.title}</h1>
 

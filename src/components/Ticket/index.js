@@ -36,37 +36,41 @@ const Ticket = () => {
 
   return (
     <div>
-      <div className="myEvent"></div>
+      <div className="myEvent "></div>
       {ticket && (
         <main className="event card contentEvent">
-          <h1>{ticket.event.title}</h1>
-          <QRCode value={url} />
+          <div className="rightTicket">
+            <QRCode value={url} />
+          </div>
+          <div className="leftTicket">
+            <h1>{ticket.event.title}</h1>
 
-          <hr />
-          {/* <img src={ticket.event.image} /> */}
-          <p>
-            <b>{ticket.event.title}:</b> {ticket.event.shortDisc}{" "}
-          </p>
+            <hr />
+            {/* <img src={ticket.event.image} /> */}
+            <p>
+              <b>{ticket.event.title}:</b> {ticket.event.shortDisc}{" "}
+            </p>
 
-          <p> Event will be in {ticket.event.location} </p>
-          <p>
-            <Moment format="D MMM YYYY" withTitle>
-              {ticket.event.beginAt}
-            </Moment>{" "}
-            until{" "}
-            <Moment format="D MMM YYYY" withTitle>
-              {ticket.event.endAt}
-            </Moment>
-            <span> : </span>
-            Begin at
-            <Moment format="hh:mm a" withTitle>
-              {ticket.event.startTime}
-            </Moment>{" "}
-            and end at:{" "}
-            <Moment format="hh:mm a" withTitle>
-              {ticket.event.endTime}
-            </Moment>
-          </p>
+            <p> Event will be in {ticket.event.location} </p>
+            <p>
+              <Moment format="D MMM YYYY" withTitle>
+                {ticket.event.beginAt}
+              </Moment>{" "}
+              until{" "}
+              <Moment format="D MMM YYYY" withTitle>
+                {ticket.event.endAt}
+              </Moment>
+              <span> : </span>
+              Begin at
+              <Moment format="hh:mm a" withTitle>
+                {ticket.event.startTime}
+              </Moment>{" "}
+              and end at:{" "}
+              <Moment format="hh:mm a" withTitle>
+                {ticket.event.endTime}
+              </Moment>
+            </p>
+          </div>
         </main>
       )}
     </div>

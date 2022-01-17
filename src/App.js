@@ -21,7 +21,6 @@ import QR from "./components/QR";
 import Ticket from "./components/Ticket";
 import Footer from "./components/Footer";
 import Payment from "./components/Payment";
-import Cart from "./components/Cart";
 import PostTicketSuccess from "./components/PostTicketSuccess";
 import TicketReader from "./components/TicketReader";
 import EditEvent from "./components/EditEvent";

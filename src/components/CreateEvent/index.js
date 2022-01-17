@@ -13,13 +13,9 @@ import "react-datepicker/dist/react-datepicker.css";
 
 const CreateEvent = () => {
 
-
-
-
   const [user, setUser] = useState(null);
   const [message, setMessage] = useState("");
   const [url, setUrl] = useState("");
-  console.log(url);
   // create event values
   const [title, setTitle] = useState("");
   const [shortDisc, setShortDisc] = useState("");
@@ -55,6 +51,8 @@ const CreateEvent = () => {
   if (!state.reducerLog.user) navigate('/login')
   }, []);
 
+
+  //post new event
   const createEvent = async () => {
     try {
       const res = await axios.post(

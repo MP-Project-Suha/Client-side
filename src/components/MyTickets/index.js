@@ -22,7 +22,7 @@ const MyTickets = ({myTickets,getMyTickets}) => {
             </div>
           </div>
     {/* main */}
-                  <main>
+                  <main className="space">
 
         {myTickets.length ? (
           myTickets.map((elem) => (

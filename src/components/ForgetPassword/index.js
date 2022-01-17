@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 //package
 import axios from "axios";
-
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
@@ -17,6 +16,8 @@ const ForgetPassword = ({ setToggle }) => {
     };
   });
 
+
+  //to send reset email to user
   const forgotPasswordFunc = async () => {
     try {
       const result = await axios.post(
@@ -45,6 +46,8 @@ const ForgetPassword = ({ setToggle }) => {
       }
     }
   };
+
+  
   return (
     <div className="box flex">
       <p className="boxTitle">Enter your current email ! </p>

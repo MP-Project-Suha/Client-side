@@ -1,11 +1,10 @@
 import React, { useState } from "react";
-import { useParams } from "react-router";
+import { useParams,useNavigate } from "react-router";
 import axios from "axios";
-import { useNavigate } from "react-router";
 import { logIn } from "../../Reducers/login";
 import { useDispatch, useSelector } from "react-redux";
 import PasswordChecklist from "react-password-checklist";
-
+import { Link } from "react-router-dom";
 const ResetPassword = () => {
   const [password, setPassword] = useState("initialState");
   const [message, setMessage] = useState("");
@@ -45,8 +44,18 @@ const ResetPassword = () => {
     }
   };
   return (
-    <div className="container">
-      <div className="form">
+    <div className="myEvent">
+    {/* banner */}
+    <div className="myEvent">
+      <div className="cont">
+        <p>
+          <Link to="/"> Home </Link> - Reset Password
+        </p>
+        <span>Welcome</span>
+      </div>
+    </div>
+  {/* main */}
+      <div  className="box flex">
         <h1 className="heading">Enter new your password</h1>
         <input
           className="input"
@@ -70,13 +79,14 @@ const ResetPassword = () => {
         />
         <button
           id="signupSubmitButton"
-          className="submit"
+          className="btn"
           onClick={resetPassword}
         >
-          Rset Password
+          Reset Password
         </button>
         <h1 className="user">{message ? message : ""}</h1>
       </div>
+
     </div>
   );
 };

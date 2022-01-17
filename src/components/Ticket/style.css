@@ -1,3 +1,12 @@
 .imgEvent{
     width: 100%;
 }
+.leftTicket {
+width: 80%;
+
+}
+
+.rightTicket{
+    width: 20%;
+    border-left: .5 solid rgb(146, 146, 146);
+}

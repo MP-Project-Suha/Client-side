@@ -14,12 +14,14 @@ const Event = () => {
   useEffect(() => {
     getEvent();
   }, []);
+  
   const state = useSelector((state) => {
     return {
       reducerLog: state.reducerLog,
     };
   });
 
+  // To get event from API
   const getEvent = async () => {
     try {
       const result = await axios.get(
@@ -34,19 +36,19 @@ const Event = () => {
   };
 
   return (
-    <div className="myEvent">
+    <div>
       {/* banner */}
       <div className="myEvent">
         <div className="cont"></div>
       </div>
       {/* main */}
+      
       {event && (
         <main className="event card contentEvent">
           <h1> {event.title} </h1>
           <img  className="imgE" src={event.image} />
 
           <p>
-            {" "}
             <b>{event.title}:</b> {event.longDisc}{" "}
           </p>
 
