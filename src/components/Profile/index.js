@@ -2,12 +2,12 @@ import React, { useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { update, logOut } from "../../Reducers/login";
-// import UploadImage from "../UploadImage";
+import UploadImage from "../UploadImage";
 import axios from "axios";
 
 import "./style.css";
 const Profile = () => {
-  const [email, setEmail] = useState("");
+
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [isDele, setIsDele] = useState(false);
@@ -38,7 +38,6 @@ const Profile = () => {
           firstName,
           lastName,
           avatar: url,
-          email,
           isDele,
         },
         {
@@ -81,7 +80,7 @@ const Profile = () => {
                   type="text"
                   name="firstName"
                   rows="1"
-                  placeholder="First Name"
+                  placeholder="First Name.."
                   required
                   onChange={(e) => setFirstName(e.target.value)}
                 />
@@ -91,20 +90,11 @@ const Profile = () => {
                   type="text"
                   name="lastName"
                   rows="1"
-                  placeholder="Last Name"
+                  placeholder="Last Name.. "
                   required
                   onChange={(e) => setLastName(e.target.value)}
                 />
-                <input
-                  defaultValue={state.reducerLog.user.email}
-                  className="input"
-                  type="text"
-                  name="title"
-                  rows="1"
-                  placeholder="Title"
-                  required
-                  onChange={(e) => setEmail(e.target.value)}
-                />
+         
                 <h4>Delete Your Account?</h4>
                 <div>
                   <label to="dele">Yes</label>
@@ -124,7 +114,7 @@ const Profile = () => {
                     name="isDele"
                   />
                 </div>
-                {/* <UploadImage setUrl={setUrl} /> */}
+                <UploadImage setUrl={setUrl} />
                 <br />
                 <button
                   className="btn"
