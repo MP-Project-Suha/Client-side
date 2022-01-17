@@ -1,6 +1,8 @@
 # Client-side
 # Event's Web Application
 ### ![Screen Shot](https://github.com/MP-Project-Suha/Client-side/blob/main/images/preview.png)
+
+### ![Screen Shot](https://github.com/MP-Project-Suha/Client-side/blob/main/images/Tickets.png)
 ## User Story:
 * User sign up with this information [ email, full name, password, phone number]
 * User can sign up with Google.
