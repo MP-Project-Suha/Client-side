@@ -40,8 +40,9 @@ const MyTicket = ({ ticket, getMyTickets }) => {
         <br />
         <span className="live small"></span>
       </div>
+
       <div className="flexx">
-        <div className="location">
+   
           <div className="locationBefore">
             <QRCode
               value={
@@ -52,9 +53,11 @@ const MyTicket = ({ ticket, getMyTickets }) => {
               }
               size="110"
             />
+            
             <p className="id">{ticket._id}</p>
           </div>
           <br />
+          <div className="location">
           <span className="small">{ticket.event.location}</span>
         </div>
       </div>

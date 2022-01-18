@@ -15,13 +15,14 @@
 
 
  .ticket {
-  font-family: sans-serif;
+   position: relative;
+
   background-repeat: no-repeat;
   background-position: top;
   background-size: fill;
   background-color: #04030C;
   width: 55%;
-  min-height: 45vh;
+  height: 45vh;
   border-radius: 15px;
   -webkit-filter: drop-shadow(1px 1px 3px rgba(0, 0, 0, 0.3));
             filter: drop-shadow(1px 1px 3px rgba(0, 0, 0, 0.3)); 
@@ -60,12 +61,19 @@
             filter: drop-shadow(1px 1px 3px rgba(0, 0, 0, 0.3)); 
 }
 
+.flexx{
+  position: relative;
+  width: 85%;
+  display: flex;
+  align-items: baseline;
+  justify-content: flex-start;
+  left: 5%;
+}
 .location {
-  width: 55%;
+  width: 45%;
   height: 110px;
   color: #fff;
-  float: left;
-  margin: 135px 0 0 78px;
+  margin: 150px 0 0 40px;
   font-size: 20px;
   font-weight: bold;
   -webkit-filter: drop-shadow(1px 1px 3px rgba(0, 0, 0, 0.3));
@@ -73,15 +81,8 @@
 }
 
 .locationBefore {
-
-  background-size: 110px 110px;
-  min-width: 30%; 
+  min-width: 10%; 
   min-height: 120px;
-  display: inline-block;
-  /* float: left; */
-  position: absolute;
-  left: -160px;
-  bottom: 5px;
   -webkit-filter: drop-shadow(1px 1px 3px rgba(0, 0, 0, 0.3));
             filter: drop-shadow(1px 1px 3px rgba(0, 0, 0, 0.3)); 
 }
@@ -91,11 +92,10 @@
   min-height: 45vh;
   position: absolute;
   top: 0;
-  left: 530px;
+  right: 20%;
 }
 
 .cta .buy {
-
   position: absolute;
   top: 135px;
   right: 15px;
@@ -115,19 +115,11 @@
 }
 
 .small {
- 
   font-weight: 200;
   color: rgba(255, 255, 255, 0.836);
 }
 
 .id{
+  color: rgba(255, 255, 255, 0.836);
   font-size: xx-small;
-}
-.flexx{
-  position: relative;
-  width: 85%;
-
-  display: flex;
-  justify-content: flex-start;
-  left: 100px;
 }
