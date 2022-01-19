@@ -42,6 +42,10 @@ const Header = () => {
               {" "}
               <Link to="/Profile">Profile</Link>
             </li>
+            {state.reducerLog.user.role === "61c0da9610b76faf5ac7fdcc" ?<li className={splitLocation[1] === "controlPanel" ? "active" : ""}>
+              {" "}
+              <Link to="/controlPanel">Control Panel</Link>
+            </li>:""}
           </ul>
         </div>
       ) : (

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-//package
+//packages
 import axios from "axios";
 import GoogleLogin from "react-google-login";
 
@@ -94,7 +94,7 @@ const Login = () => {
   };
 
   return (
-    <div className="myEvent">
+    <div>
       {/* banner */}
       <div className="myEvent">
         <div className="cont">

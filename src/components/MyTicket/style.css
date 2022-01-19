@@ -1,54 +1,53 @@
-/* .ticket{
-    width: 70%;
-    display: flex;
-    align-items: center;
-    
+.ticketContainer {
+  width: 55%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  font-family: inherit;
+  margin: 2% auto;
+  padding: 0;
+  min-height: 45vh;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.075);
 }
-.card.flexTicket{
-    display: flex;
-   justify-content: space-evenly;
-   align-items: center;
-   padding: 10px;
-}
- */
 
-
-
- .ticket {
-   position: relative;
-
+.ticket {
+  font-family: inherit;
+  margin: 2% auto;
+  position: relative;
   background-repeat: no-repeat;
   background-position: top;
   background-size: fill;
-  background-color: #04030C;
-  width: 55%;
-  height: 45vh;
+  background-color: #04030c;
+  width: 100%;
+  min-height: 45vh;
   border-radius: 15px;
   -webkit-filter: drop-shadow(1px 1px 3px rgba(0, 0, 0, 0.3));
-            filter: drop-shadow(1px 1px 3px rgba(0, 0, 0, 0.3)); 
-  display: block;
-  margin: 2% auto;
+  filter: drop-shadow(1px 1px 3px rgba(0, 0, 0, 0.3));
+  /* display: block; */
   color: #000;
-
 }
 
+.ticket:hover {
+
+}
 .date {
-  margin: 30px;
+  margin: 15px;
   -webkit-filter: drop-shadow(1px 1px 3px rgba(0, 0, 0, 0.3));
-            filter: drop-shadow(1px 1px 3px rgba(0, 0, 0, 0.3)); 
+  filter: drop-shadow(1px 1px 3px rgba(0, 0, 0, 0.3));
 }
 
-.date .day{
+.date .day {
   font-size: 80px;
   float: left;
+  
 }
 
 .date .month-and-time {
   float: left;
-  margin: 15px 0 0 0;
+  margin: 20px 0px 0px 0;
   font-weight: bold;
 }
-.name{
+.name {
   color: rgba(255, 255, 255, 0.836);
 }
 .artist {
@@ -58,38 +57,40 @@
   float: left;
   font-weight: bold;
   -webkit-filter: drop-shadow(1px 1px 3px rgba(0, 0, 0, 0.3));
-            filter: drop-shadow(1px 1px 3px rgba(0, 0, 0, 0.3)); 
+  filter: drop-shadow(1px 1px 3px rgba(0, 0, 0, 0.3));
 }
 
-.flexx{
+.flexx {
   position: relative;
   width: 85%;
   display: flex;
   align-items: baseline;
   justify-content: flex-start;
-  left: 5%;
+  left:0;
 }
 .location {
   width: 45%;
-  height: 110px;
+  min-height: 10vh;
   color: #fff;
   margin: 150px 0 0 40px;
   font-size: 20px;
   font-weight: bold;
   -webkit-filter: drop-shadow(1px 1px 3px rgba(0, 0, 0, 0.3));
-            filter: drop-shadow(1px 1px 3px rgba(0, 0, 0, 0.3)); 
+  filter: drop-shadow(1px 1px 3px rgba(0, 0, 0, 0.3));
 }
 
 .locationBefore {
-  min-width: 10%; 
-  min-height: 120px;
+  margin: 80px 0 0 40px;
+  min-width: 10%;
+  min-height: 6vh;
   -webkit-filter: drop-shadow(1px 1px 3px rgba(0, 0, 0, 0.3));
-            filter: drop-shadow(1px 1px 3px rgba(0, 0, 0, 0.3)); 
+  filter: drop-shadow(1px 1px 3px rgba(0, 0, 0, 0.3));
 }
 
 .rip {
+  /* position: relative; */
   border-right: 8px dotted #7c529c;
-  min-height: 45vh;
+  min-height: inherit;
   position: absolute;
   top: 0;
   right: 20%;
@@ -97,8 +98,8 @@
 
 .cta .buy {
   position: absolute;
-  top: 135px;
-  right: 15px;
+  top: 40%;
+  right: 3%;
   display: block;
   font-size: 12px;
   font-weight: bold;
@@ -108,10 +109,10 @@
   color: #fff;
   text-decoration: none;
   -webkit-transform: rotate(-90deg);
-        -ms-transform: rotate(-90deg);
-            transform: rotate(-90deg);
+  -ms-transform: rotate(-90deg);
+  transform: rotate(-90deg);
   -webkit-filter: drop-shadow(1px 1px 3px rgba(0, 0, 0, 0.3));
-            filter: drop-shadow(1px 1px 3px rgba(0, 0, 0, 0.3)); 
+  filter: drop-shadow(1px 1px 3px rgba(0, 0, 0, 0.3));
 }
 
 .small {
@@ -119,7 +120,20 @@
   color: rgba(255, 255, 255, 0.836);
 }
 
-.id{
+.id {
   color: rgba(255, 255, 255, 0.836);
   font-size: xx-small;
 }
+
+.pdf {
+  background-color: inherit;
+  cursor: pointer;
+  position: relative;
+  right: 0;
+  border: none;
+  text-align:inherit;
+  font-size: 1.2rem;
+  color: #c8156e;
+  line-height: 4rem;
+}
+

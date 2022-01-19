@@ -26,6 +26,7 @@ import TicketReader from "./components/TicketReader";
 import EditEvent from "./components/EditEvent";
 import QRReader from "./components/QRReader";
 import Profile from "./components/Profile";
+import ControlPanel from "./components/ControlPanel"
 const App = () => {
   const [events, setEvents] = useState([]);
   const [myEvents, setMyEvents] = useState([]);
@@ -134,8 +135,9 @@ const App = () => {
   return (
     <div>
       <Header />
-
+     
       <Routes>
+      <Route exact path="/controlPanel" element={<ControlPanel />} />
         <Route exact path="/Profile" element={<Profile />} />
         <Route exact path="/QrReader" element={<QRReader />} />
         <Route exact path="/editEvent/:event" element={<EditEvent />} />
