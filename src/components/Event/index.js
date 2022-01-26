@@ -76,6 +76,7 @@ const Event = () => {
             event.createdBy._id === state.reducerLog.user._id ? ( // check if it is creator or not
               event.isVerified ? (
                 <>
+                event.isVerified ?
                   <h1
                     className="btn"
                     onClick={(e) => {

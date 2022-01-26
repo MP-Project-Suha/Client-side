@@ -249,3 +249,12 @@ p.bannerText {
   font-size: 80px;
   text-align: left;
 }
+.loading{
+height: 80px;
+width: 80px;
+}
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

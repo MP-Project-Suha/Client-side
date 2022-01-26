@@ -4,7 +4,7 @@ import CountUp from "react-countup";
 import VisibilitySensor from "react-visibility-sensor";
 import "./style.css";
 
-const Landing = ({ events, allPublicEvents }) => {
+const Landing = ({ events }) => {
   const navigator = useNavigate();
   return (
     <div className="contain">
@@ -19,14 +19,15 @@ const Landing = ({ events, allPublicEvents }) => {
               navigator(`/createEvent`);
             }}
           >
-            {" "}
             Create Event
           </bottom>
           <div className="relative"></div>
         </div>
       </div>
       {/* main */}
+      {events &&events.length?
       <main>
+      
         <div className="relative">
           <span className="white">Popular</span>
           <h2 className="subTitle">
@@ -35,20 +36,20 @@ const Landing = ({ events, allPublicEvents }) => {
           <p className="nu"> [Catch a Ticket]</p>
         </div>
         <div className="big">
-          <img id="a" src={events && events[0].image} />
+          <img id="a" src={events[0].image} />
           <div className="b">
             <div className="y">
               <h1 className="title">Riyadh's Company Event</h1>
               <hr className="line" />
               <p>
-                {events && events[0].shortDisc}
-                <br />- {events && events[0].location}
+                {events[0].shortDisc}
+                <br />- {events[0].location}
               </p>
 
               <button
                 onClick={(e) => {
                   e.preventDefault();
-                  navigator(`/Event/${events && events[0]._id}`);
+                  navigator(`/Event/${events[0]._id}`);
                 }}
                 className="secondaryBtn"
               >
@@ -57,7 +58,10 @@ const Landing = ({ events, allPublicEvents }) => {
             </div>
           </div>
         </div>
+        
       </main>
+      :<main><img src="https://c.tenor.com/I6kN-6X7nhAAAAAj/loading-buffering.gif" className="loading"/></main>
+    }
       <VisibilitySensor partialVisibility offset={{ bottom: 200 }}>
         {({ isVisible }) => (
           // <div className="boxShadow" style={{ height: 100 }}>
@@ -93,7 +97,7 @@ const Landing = ({ events, allPublicEvents }) => {
         </div>
         <div className="flex">
           <div className="flexImg">
-            {events && events.length !== 0 ? (
+            {events && events.length? (
               events.map((elem, i) => (
                 <div className="d">
                   <img
@@ -107,26 +111,8 @@ const Landing = ({ events, allPublicEvents }) => {
                 </div>
               ))
             ) : (
-              <img
-                id="loading"
-                src="https://i.pinimg.com/originals/1e/5c/0b/1e5c0bc454c49fb59a58a19f378d64e6.gif"
-              />
+              <img src="https://c.tenor.com/I6kN-6X7nhAAAAAj/loading-buffering.gif" className="loading"/>
             )}
-
-            {/* <div  className="d">
-          <img
-            className="dd"
-            src={events&& events[0].image}
-          /></div>
-          <div  className="d"><img
-          className="dd"
-          src={events&& events[1].image}
-          /></div>  
-              <div  className="d"> <img
-           className="dd"
-           src={events&& events[2].image}
-          /></div>  
-          */}
           </div>
         </div>
       </div>
