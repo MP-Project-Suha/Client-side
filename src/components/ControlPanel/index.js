@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 //packages
 import axios from "axios";
 
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { useNavigate } from "react-router";
 import { Link, useLocation } from "react-router-dom";
 
@@ -29,6 +29,7 @@ const ControlPanel = () => {
   useEffect(() => {
     getUsers();
     getPendingEvents();
+    // eslint-disable-next-line 
   }, []);
 
   //Get all users for admin

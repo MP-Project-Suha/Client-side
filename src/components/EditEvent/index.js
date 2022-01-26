@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate, useParams, Link } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 
 import DatePicker from "react-datepicker";
 //childe components
-// import UploadImage from "../UploadImage/index.js";
-import DateAndTime from "../DateAndTime";
+import UploadImage from "../UploadImage/index.js";
+
 // style file
 import "./style.css";
 import "react-datepicker/dist/react-datepicker.css";
@@ -253,7 +253,7 @@ const EditEvent = ({ getRecipes }) => {
               />
             </div>
             {/* <Location/> */}
-            {/* <UploadImage setUrl={setUrl} /> */}
+            <UploadImage setUrl={setUrl} />
             {message ? <p> {message}</p> : ""}
             <div className="btnsContainer">
               <Link className="btn" to="/">

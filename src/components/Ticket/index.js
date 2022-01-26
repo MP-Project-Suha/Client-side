@@ -12,6 +12,7 @@ const Ticket = () => {
 
   useEffect(() => {
     getTicket();
+    // eslint-disable-next-line
   }, []);
 
   const getTicket = async () => {

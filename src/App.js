@@ -17,7 +17,6 @@ import PublicEvents from "./components/PublicEvents";
 import PostTicket from "./components/PostTicket";
 import MyTickets from "./components/MyTickets";
 import GuestList from "./components/GuestList";
-import QR from "./components/QR";
 import Ticket from "./components/Ticket";
 import Footer from "./components/Footer";
 import Payment from "./components/Payment";
@@ -31,8 +30,8 @@ const App = () => {
   const [events, setEvents] = useState([]);
   const [myEvents, setMyEvents] = useState([]);
   const [myTickets, setMyTickets] = useState([]);
-  const [myPendingTickets, setMyPendingTickets] = useState([]);
-  const [count, setCount] = useState(null);
+  const [setMyPendingTickets] = useState([]);
+  const [ setCount] = useState(null);
   const [order, setOrder] = useState([]);
 
   const state = useSelector((state) => {
@@ -44,6 +43,7 @@ const App = () => {
   useEffect(() => {
     allPublicEvents();
     getMyEvents();
+    // eslint-disable-next-line 
   }, []);
 
   const allPublicEvents = async () => {
@@ -76,6 +76,7 @@ const App = () => {
 
   useEffect(() => {
     getMyTickets();
+    // eslint-disable-next-line 
   }, []);
 
   const getMyTickets = async () => {
@@ -88,7 +89,6 @@ const App = () => {
           },
         }
       );
-      // console.log("getMyTickets,",result.data);
       setMyTickets(result.data);
     } catch (error) {
       console.log(error);
@@ -97,6 +97,7 @@ const App = () => {
 
   useEffect(() => {
     getMyPendingTickets();
+    // eslint-disable-next-line 
   }, []);
 
   const getMyPendingTickets = async () => {
@@ -150,7 +151,6 @@ const App = () => {
           }
         />
         <Route exact path="/payment/:event" element={<Payment />} />
-        <Route exact path="/qr" element={<QR />} />
         <Route
           exact
           path="/tickets"

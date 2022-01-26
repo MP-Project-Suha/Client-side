@@ -1,10 +1,12 @@
 import React, { useState } from "react";
-import { useParams,useNavigate } from "react-router";
-import axios from "axios";
-import { logIn } from "../../Reducers/login";
-import { useDispatch, useSelector } from "react-redux";
-import PasswordChecklist from "react-password-checklist";
+import { useParams, useNavigate } from "react-router";
 import { Link } from "react-router-dom";
+import axios from "axios";
+import { useDispatch, useSelector } from "react-redux";
+
+import { logIn } from "../../Reducers/login";
+import PasswordChecklist from "react-password-checklist";
+
 const ResetPassword = () => {
   const [password, setPassword] = useState("initialState");
   const [message, setMessage] = useState("");
@@ -45,17 +47,17 @@ const ResetPassword = () => {
   };
   return (
     <div className="myEvent">
-    {/* banner */}
-    <div className="myEvent">
-      <div className="cont">
-        <p>
-          <Link to="/"> Home </Link> - Reset Password
-        </p>
-        <span>Welcome</span>
+      {/* banner */}
+      <div className="myEvent">
+        <div className="cont">
+          <p>
+            <Link to="/"> Home </Link> - Reset Password
+          </p>
+          <span>Welcome</span>
+        </div>
       </div>
-    </div>
-  {/* main */}
-      <div  className="box flex">
+      {/* main */}
+      <div className="box flex">
         <h1 className="heading">Enter new your password</h1>
         <input
           className="input"
@@ -77,16 +79,11 @@ const ResetPassword = () => {
             }
           }}
         />
-        <button
-          id="signupSubmitButton"
-          className="btn"
-          onClick={resetPassword}
-        >
+        <button id="signupSubmitButton" className="btn" onClick={resetPassword}>
           Reset Password
         </button>
         <h1 className="user">{message ? message : ""}</h1>
       </div>
-
     </div>
   );
 };

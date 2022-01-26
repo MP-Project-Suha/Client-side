@@ -22,17 +22,18 @@ const MyEvents = ({ myEvents, getMyEvents }) => {
       </div>
       {/* main */}
       <main>
-        {myEvents && myEvents.length
-          ? myEvents.map((elem) => (
-              <MyEvent
-                className="subEvent"
-                key={`event${elem._id}`}
-                event={elem}
-                getMyEvents={getMyEvents}
-                
-              />
-            ))
-          : <h3>No Events for you.. </h3>}
+        {myEvents && myEvents.length ? (
+          myEvents.map((elem) => (
+            <MyEvent
+              className="subEvent"
+              key={`event${elem._id}`}
+              event={elem}
+              getMyEvents={getMyEvents}
+            />
+          ))
+        ) : (
+          <h3>No Events for you.. </h3>
+        )}
       </main>
     </div>
   );

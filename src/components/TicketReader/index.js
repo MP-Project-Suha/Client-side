@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { useDispatch, useSelector } from "react-redux";
-import Swal from 'sweetalert2'
+import { useSelector } from "react-redux";
+import Swal from "sweetalert2";
 //style
 import "./style.css";
-import { useNavigate, useParams } from "react-router";
+import { useParams } from "react-router";
 
 const TicketReader = () => {
   const { ticket } = useParams();
@@ -16,6 +16,7 @@ const TicketReader = () => {
   });
   useEffect(() => {
     getTicket();
+    // eslint-disable-next-line
   }, []);
 
   const getTicket = async () => {
@@ -45,13 +46,12 @@ const TicketReader = () => {
     } catch (error) {
       console.log("error getTicket", error);
       setMessage(error.response.data);
-   
-        Swal.fire({
-          icon: "error",
-          title:`${error.response.data}`,
-          text: `Expired or Deleted Ticket`,
-        });
-    
+
+      Swal.fire({
+        icon: "error",
+        title: `${error.response.data}`,
+        text: `Expired or Deleted Ticket`,
+      });
     }
   };
 

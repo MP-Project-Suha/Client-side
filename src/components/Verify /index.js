@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
+import { Link, useParams } from "react-router-dom";
 import axios from "axios";
+
 import "./style.css";
-import { Link, useNavigate, useParams } from "react-router-dom";
+
 const Verify = () => {
   const { token2 } = useParams();
-  const [message, setMessage] = useState("null");
-  const navigate = useNavigate();
+  const [ setMessage] = useState("null");
 
   useEffect(() => {
     verify();

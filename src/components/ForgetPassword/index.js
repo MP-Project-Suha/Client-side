@@ -17,7 +17,7 @@ const ForgetPassword = ({ setToggle }) => {
   });
 
 
-  //to send reset email to user
+  //send reset email to user
   const forgotPasswordFunc = async () => {
     try {
       const result = await axios.post(

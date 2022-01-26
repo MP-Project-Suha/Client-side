@@ -26,6 +26,7 @@ const PostTicket = () => {
   }, []);
   useEffect(() => {
     getEvent();
+    // eslint-disable-next-line
   }, []);
 
   const getEvent = async () => {
@@ -36,34 +37,12 @@ const PostTicket = () => {
 
       if (result.data) {
         console.log(result.data);
-       setPrice(result.data.price);
+        setPrice(result.data.price);
       }
-
-      
     } catch (error) {
       console.log(error);
     }
   };
-  console.log(donate);
-  // const addTicket = async () => {
-  //   try {
-
-  //       const result = await axios.post(
-  //           `${process.env.REACT_APP_BASE_URL}/myTicket/${event}`,{},
-  //           {
-  //             headers: {
-  //               Authorization: `Bearer ${state.reducerLog.token}`,
-  //             }
-  //           }
-  //         );
-  //     console.log(result);
-  //     if (result.status === 201) {
-  //       console.log("success");
-  //     }
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // };
 
   return (
     <div className="myEvent">

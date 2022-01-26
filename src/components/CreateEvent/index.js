@@ -5,7 +5,7 @@ import {  useSelector } from "react-redux";
 
 import DatePicker from "react-datepicker";
 //childe components 
-// import UploadImage from "../UploadImage";
+import UploadImage from "../UploadImage";
 
 // style file
 import "./style.css";
@@ -13,7 +13,7 @@ import "react-datepicker/dist/react-datepicker.css";
 
 const CreateEvent = () => {
 
-  const [user, setUser] = useState(null);
+  // const [setUser] = useState(null);
   const [message, setMessage] = useState("");
   const [url, setUrl] = useState("");
   // create event values
@@ -23,7 +23,7 @@ const CreateEvent = () => {
   const [location, setLocation] = useState("");
   const [price, setPrice] = useState("");
 
-  //Date And Time values
+  //Date and time values
   const [beginAt, setBeginAt] = useState(new Date());
   const [endAt, setEndAt] = useState(new Date());
   const [startTime, setStartTime] = useState(new Date());
@@ -36,10 +36,10 @@ const CreateEvent = () => {
   // navigation
   const navigate = useNavigate();
 
-  useEffect(() => {
-    const userStorage = localStorage.getItem("user");
-    setUser(JSON.parse(userStorage));
-  }, []);
+  // useEffect(() => {
+  //   const userStorage = localStorage.getItem("user");
+  //   setUser(JSON.parse(userStorage));
+  // }, []);
 
   const state = useSelector((state) => {
     return {
@@ -231,7 +231,7 @@ const CreateEvent = () => {
       />
           </div>
           {/* <Location/> */}
-          {/* <UploadImage setUrl={setUrl} /> */}
+          <UploadImage setUrl={setUrl} />
           {message ? <p> {message}</p> : ""}
           <div className="btnsContainer">
               <Link className="btn" to="/"> Cancel </Link>

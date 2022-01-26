@@ -1,8 +1,8 @@
 # Client-side
 # Event's Web Application
+
+### ![Screen Shot](https://github.com/MP-Project-Suha/Client-side/blob/main/images/landing.png)
 ### ![Screen Shot](https://github.com/MP-Project-Suha/Client-side/blob/main/images/preview.png)
-
-
 
 ### ![Screen Shot](https://github.com/MP-Project-Suha/Client-side/blob/main/images/Tickets.png)
 

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { storage } from "../firebase";
-import "./style.css"
+import "./style.css";
+
 const UploadImage = ({ setUrl }) => {
   const [image, setImage] = useState("");
   const [progress, setProgress] = useState(0);
@@ -35,15 +36,23 @@ const UploadImage = ({ setUrl }) => {
       }
     );
   };
+  
   return (
     <div className="uploader">
       <label className="file">
-        Choose Photo 
-      <input type="file" onChange={handleChange} /></label>
+        Choose Photo
+        <input type="file" onChange={handleChange} />
+      </label>
       {image ? (
         <div className="uploader">
-          <button className="file"  onClick={handleUpload}>Upload</button>
-          <progress  value={progress} max="100" />
+          {progress !== 100 ? (
+            <button className="file" onClick={handleUpload}>
+              Upload
+            </button>
+          ) : (
+            <p className="pending">Uploaded Successfully</p>
+          )}
+          {/* <progress  value={progress} max="100" /> */}
         </div>
       ) : (
         ""

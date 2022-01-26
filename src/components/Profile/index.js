@@ -2,12 +2,11 @@ import React, { useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { update, logOut } from "../../Reducers/login";
-// import UploadImage from "../UploadImage";
+import UploadImage from "../UploadImage";
 import axios from "axios";
 
 import "./style.css";
 const Profile = () => {
-
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [isDele, setIsDele] = useState(false);
@@ -74,6 +73,7 @@ const Profile = () => {
               <div className="form">
                 <h1>Update Your Profile</h1>
                 <hr className="line" />
+                <p className="email">{state.reducerLog.user.email}</p>
                 <input
                   defaultValue={state.reducerLog.user.firstName}
                   className="input"
@@ -94,7 +94,7 @@ const Profile = () => {
                   required
                   onChange={(e) => setLastName(e.target.value)}
                 />
-         
+
                 <h4>Delete Your Account?</h4>
                 <div>
                   <label to="dele">Yes</label>
@@ -114,7 +114,7 @@ const Profile = () => {
                     name="isDele"
                   />
                 </div>
-                {/* <UploadImage setUrl={setUrl} /> */}
+                <UploadImage setUrl={setUrl} />
                 <br />
                 <button
                   className="btn"

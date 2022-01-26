@@ -13,6 +13,7 @@ const Event = () => {
 
   useEffect(() => {
     getEvent();
+     // eslint-disable-next-line
   }, []);
   
   const state = useSelector((state) => {
@@ -72,11 +73,11 @@ const Event = () => {
             </Moment>
           </p>
           <p>Price: {event.price} SR</p>
+          {console.log( state.reducerLog.user._id )}
           {state.reducerLog.user ? (
             event.createdBy._id === state.reducerLog.user._id ? ( // check if it is creator or not
               event.isVerified ? (
                 <>
-                event.isVerified ?
                   <h1
                     className="btn"
                     onClick={(e) => {

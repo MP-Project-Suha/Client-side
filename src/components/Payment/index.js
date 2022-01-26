@@ -11,10 +11,7 @@ export const stripePromise = loadStripe(
 
 const Payment = ({ donate, price }) => {
   const { event } = useParams();
-
   const [clientSecret, setClientSecret] = useState("");
-
-  const [secret, setSecret] = useState("");
 
   useEffect(() => {
     fetch(`${process.env.REACT_APP_BASE_URL}/create-payment-intent`, {

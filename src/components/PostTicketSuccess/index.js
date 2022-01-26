@@ -1,22 +1,24 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { useNavigate, useParams } from "react-router";
 //style
 import "./style.css";
-import { useNavigate, useParams } from "react-router";
 
-const PostTicketSuccess = ({ getMyPendingTickets }) => {
+
+const PostTicketSuccess = () => {
   const navigator = useNavigate();
   const { event } = useParams();
 
-  const [tickets, setTickets] = useState([]);
   const [message, setMessage] = useState("");
+
   const state = useSelector((state) => {
     return {
       reducerLog: state.reducerLog,
     };
   });
+
   const addTicket = async () => {
     try {
       const result = await axios.post(
@@ -44,26 +46,9 @@ const PostTicketSuccess = ({ getMyPendingTickets }) => {
 
   useEffect(() => {
     addTicket();
+    // eslint-disable-next-line 
   }, []);
-  // const postOrder = async () => {
-  //   try {
 
-  //       const result = await axios.post(
-  //           `${process.env.REACT_APP_BASE_URL}/order/${event}`,{tickets:tickets, total:(Number(price) + Number(donate))},
-  //           {
-  //             headers: {
-  //               Authorization: `Bearer ${state.reducerLog.token}`,
-  //             }
-  //           }
-  //         );
-  //     console.log(result);
-  //     if (result.status === 201) {
-  //       console.log("success");
-  //     }
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // };
 
   return (
     <div>

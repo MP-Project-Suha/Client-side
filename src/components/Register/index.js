@@ -1,15 +1,16 @@
 import React, { useState } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+
 import axios from "axios";
 import PasswordChecklist from "react-password-checklist";
-import { Link, useLocation ,useNavigate} from "react-router-dom";
-import "./style.css";
-const Register = () => {
 
+import "./style.css";
+
+const Register = () => {
   const location = useLocation();
-  const navigator =useNavigate();
+  const navigator = useNavigate();
   const { pathname } = location;
   const splitLocation = pathname.split("/");
-
 
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -44,42 +45,42 @@ const Register = () => {
 
   return (
     <div className="myEvent">
-            {/* banner */}
-            <div className="myEvent">
+      {/* banner */}
+      <div className="myEvent">
         <div className="cont">
           <p>
-            <Link to="/">  Home </Link> - {splitLocation[1]}
+            <Link to="/"> Home </Link> - {splitLocation[1]}
           </p>
           <span>{splitLocation[1]}</span>
         </div>
       </div>
-{/* main */}
+      {/* main */}
 
       <form
-      className="box flex"
+        className="box flex"
         onSubmit={(e) => {
           e.preventDefault();
           register();
         }}
       >
         <p className="boxTitle">Register Right Now!</p>
-        <hr className="line"/>
+        <hr className="line" />
         <input
-        className="input"
+          className="input"
           required
           type="text"
           placeholder="First Name .."
           onChange={(e) => setFirstName(e.target.value)}
         />
         <input
-           className="input"
+          className="input"
           required
           type="text"
           placeholder="Last Name .."
           onChange={(e) => setLastName(e.target.value)}
         />
         <input
-           className="input"
+          className="input"
           required
           type="email"
           placeholder="Email"
@@ -87,7 +88,7 @@ const Register = () => {
         />
 
         <input
-           className="input"
+          className="input"
           placeholder="Password"
           type="password"
           onChange={(e) => setPassword(e.target.value)}
@@ -108,11 +109,18 @@ const Register = () => {
         />
 
         <p> {message ? message : ""}</p>
-        <button className="btn" id="signupSubmitButton">Register</button>
-        <p className="link" onClick={(e) =>{e.preventDefault()
-          navigator("/login")} }>
+        <button className="btn" id="signupSubmitButton">
+          Register
+        </button>
+        <p
+          className="link"
+          onClick={(e) => {
+            e.preventDefault();
+            navigator("/login");
+          }}
+        >
           Have account? Sign In!
-          </p>
+        </p>
       </form>
     </div>
   );
