@@ -5,6 +5,8 @@
 
 
 ### ![Screen Shot](https://github.com/MP-Project-Suha/Client-side/blob/main/images/Tickets.png)
+
+
 ## User Story:
 * User sign up with this information [ email, full name, password, phone number]
 * User can sign up with Google.
@@ -90,6 +92,6 @@
 
 ## Links:
 * [Trello](https://trello.com/b/xefVOZOx/master-piece-project)
-* [Deploy](http://eventi-webapp.herokuapp.com/Public)
+* [Deploy](http://eventi-webapp.herokuapp.com)
 * [Server-Side](https://github.com/MP-Project-Suha/Server-side)
 * [Slides]
