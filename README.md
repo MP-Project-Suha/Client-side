@@ -4,8 +4,6 @@
 
 ### ![Screen Shot](https://github.com/MP-Project-Suha/Client-side/blob/main/images/Tickets.png)
 
-![Uploading Screen Shot 2022-01-26 at 3.34.20 PM.png…]()
-
 
 ## User Story:
 * User sign up with this information [ email, full name, password, phone number]
